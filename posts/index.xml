@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Hotsnow&#39;s Island</title>
-    <link>http://hotsnow-sean.github.io/posts/</link>
+    <link>https://hotsnow-sean.github.io/posts/</link>
     <description>Recent content in Posts on Hotsnow&#39;s Island</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 17 Aug 2020 19:51:31 +0800</lastBuildDate><atom:link href="http://hotsnow-sean.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Aug 2020 19:51:31 +0800</lastBuildDate><atom:link href="https://hotsnow-sean.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>回溯算法</title>
-      <link>http://hotsnow-sean.github.io/posts/backtracking-algorithm/</link>
+      <link>https://hotsnow-sean.github.io/posts/backtracking-algorithm/</link>
       <pubDate>Mon, 17 Aug 2020 19:51:31 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/backtracking-algorithm/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/backtracking-algorithm/</guid>
       <description>&lt;div class=&#34;note info no-icon&#34;&gt;
 &amp;emsp;&amp;emsp;A backtracking algorithm tries to construct a solution to a computational problem incrementally, one small piece at a time. Whenever the algorithm needs to decide between multiple alternatives to the next component of the solution, it recursively evaluates every alternative and then chooses the best one.&lt;p style=&#34;text-align: right&#34;&gt;——_Algorithms-JeffE_&lt;/p&gt;
 
@@ -21,10 +21,10 @@
     
     <item>
       <title>背包九讲（九） 背包问题求具体方案</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-09/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-09/</link>
       <pubDate>Mon, 03 Aug 2020 15:05:36 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-09/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-09/</guid>
       <description>&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;有 $N$ 件物品和一个容量是 $V$ 的背包。每件物品只能使用一次。
@@ -36,10 +36,10 @@
     
     <item>
       <title>背包九讲（八） 背包问题求方案数</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-08/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-08/</link>
       <pubDate>Thu, 30 Jul 2020 14:55:11 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-08/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-08/</guid>
       <description>&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;有 $N$ 件物品和一个容量是 $V$ 的背包。每件物品只能使用一次。
@@ -51,10 +51,10 @@
     
     <item>
       <title>背包九讲（七） 有依赖背包</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-07/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-07/</link>
       <pubDate>Tue, 14 Jul 2020 08:00:44 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-07/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-07/</guid>
       <description>&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;有 $N$ 种物品和一个容量为 $V$ 的背包。
@@ -65,10 +65,10 @@
     
     <item>
       <title>背包九讲（六） 分组背包</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-06/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-06/</link>
       <pubDate>Sun, 12 Jul 2020 07:31:38 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-06/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-06/</guid>
       <description>&lt;h1 id=&#34;-分组背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 分组背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
 &lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -81,20 +81,20 @@
     
     <item>
       <title>Linux双系统问题杂谈（持续更新）</title>
-      <link>http://hotsnow-sean.github.io/posts/linux-win-issue/</link>
+      <link>https://hotsnow-sean.github.io/posts/linux-win-issue/</link>
       <pubDate>Sat, 11 Jul 2020 20:21:56 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/linux-win-issue/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/linux-win-issue/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200707211141.png&#34; alt=&#34;&#34;&gt;
 玩 ArchLinux 双系统时遇到的一些小问题，记录一下&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>背包九讲（五） 二维费用背包</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-05/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-05/</link>
       <pubDate>Sat, 11 Jul 2020 19:24:45 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-05/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-05/</guid>
       <description>&lt;h1 id=&#34;-二维费用背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 二维费用背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
 &lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -107,10 +107,10 @@
     
     <item>
       <title>背包九讲（四） 混合背包</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-04/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-04/</link>
       <pubDate>Sat, 11 Jul 2020 10:55:43 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-04/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-04/</guid>
       <description>&lt;h1 id=&#34;-混合背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 混合背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
 &lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -128,19 +128,19 @@
     
     <item>
       <title>Hexo-Next主题 可能遇到的问题解决方案（持续更新）</title>
-      <link>http://hotsnow-sean.github.io/posts/hexo-next-theme-issue/</link>
+      <link>https://hotsnow-sean.github.io/posts/hexo-next-theme-issue/</link>
       <pubDate>Fri, 10 Jul 2020 09:25:22 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/hexo-next-theme-issue/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/hexo-next-theme-issue/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200710100226.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>背包九讲（三） 多重背包</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-03/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-03/</link>
       <pubDate>Wed, 08 Jul 2020 16:50:41 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-03/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-03/</guid>
       <description>&lt;h1 id=&#34;-多重背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 多重背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
 &lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -152,10 +152,10 @@
     
     <item>
       <title>背包九讲（二） 完全背包</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-02/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-02/</link>
       <pubDate>Wed, 08 Jul 2020 08:55:39 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-02/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-02/</guid>
       <description>&lt;h1 id=&#34;-完全背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 完全背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
 &lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -167,10 +167,10 @@
     
     <item>
       <title>背包九讲（一） 01背包</title>
-      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-01/</link>
+      <link>https://hotsnow-sean.github.io/posts/knapsack-problem-01/</link>
       <pubDate>Tue, 07 Jul 2020 08:13:17 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-01/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/knapsack-problem-01/</guid>
       <description>&lt;p&gt;学习来源：&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;背包问题(Knapsack problem)是一种组合优化的 NP 完全问题。问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。问题的名称来源于如何选择最合适的物品放置于给定背包中。相似问题经常出现在商业、组合数学，计算复杂性理论、密码学和应用数学等领域中。也可以将背包问题描述为决定性问题，即在总重量不超过 W 的前提下，总价值是否能达到 V？它是在 1978 年由 Merkle 和 Hellman 提出的。&lt;a href=&#34;https://baike.baidu.com/item/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/2416931?fr=aladdin&#34; title=&#34;百度百科&#34;&gt;&lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
@@ -180,10 +180,10 @@
     
     <item>
       <title>Arch安装向导</title>
-      <link>http://hotsnow-sean.github.io/posts/arch-install-guide/</link>
+      <link>https://hotsnow-sean.github.io/posts/arch-install-guide/</link>
       <pubDate>Mon, 06 Jul 2020 07:32:52 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/arch-install-guide/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/arch-install-guide/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200707211141.png&#34; alt=&#34;&#34;&gt;
 2020-08-19 更新添加问题解决章节&lt;br&gt;
 2020-07-30 更新最新联网方式以及修正部分内容&lt;/p&gt;
@@ -194,10 +194,10 @@
     
     <item>
       <title>Hello World - Hexo and Next Guild</title>
-      <link>http://hotsnow-sean.github.io/posts/hello-world/</link>
+      <link>https://hotsnow-sean.github.io/posts/hello-world/</link>
       <pubDate>Sun, 05 Jul 2020 13:36:38 +0800</pubDate>
       
-      <guid>http://hotsnow-sean.github.io/posts/hello-world/</guid>
+      <guid>https://hotsnow-sean.github.io/posts/hello-world/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200707210446.png&#34; alt=&#34;&#34;&gt;
 第一篇博文，没什么内容，依旧充满情怀地对这个世界问声好，Hello world!&lt;br&gt;
 其实是由于 hexo 搭建博客必须保证至少有一篇博文才能正常使用，233，顺便简单记录一下搭建博客的过程&lt;/p&gt;</description>

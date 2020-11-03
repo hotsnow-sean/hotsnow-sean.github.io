@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
+<link rel="manifest" href="/images/site.webmanifest">
+
+<link rel="stylesheet" href="http://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css"><title>Hello World - Hexo and Next Guild | Hotsnow&#39;s Island</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hotsnow&#39;s Island</h1>
+      <i class="logo-line"></i>
+    </a>
+    
+    <p class="site-subtitle" itemprop="description">仰观浮云，俯惹尘埃</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+    
+    <li class="menu-item">
+      <a href="/" rel="section"><i class='fa fa-home fa-fw'></i>首页
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/about/" rel="section"><i class='fa fa fa-user fa-fw'></i>关于
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/tags/" rel="section"><i class='fa fa-tags fa-fw'></i>标签<span class="badge">12</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/categories/" rel="section"><i class='fa fa-th fa-fw'></i>分类<span class="badge">3</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/posts/" rel="section"><i class='fa fa-archive fa-fw'></i>归档<span class="badge">14</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/collection/" rel="section"><i class='fa fa-book fa-fw'></i>珍宝阁
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/sitemap.xml" rel="section"><i class='fa fa-sitemap fa-fw'></i>站点地图
+      </a>
+    </li>
+    
+
+    <li class="menu-item menu-item-search">
+      <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-pop-overlay">
+  <div class="popup search-popup">
+    <div class="search-header">
+      <span class="search-icon">
+        <i class="fa fa-search"></i>
+      </span>
+      <div class="search-input-container">
+        <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false"
+          type="search" class="search-input">
+      </div>
+      <span class="popup-btn-close">
+        <i class="fa fa-times-circle"></i>
+      </span>
+    </div>
+    <div class="search-result-container no-result">
+      <div class="search-result-icon">
+        <i class="fa fa-spinner fa-pulse fa-5x"></i>
+      </div>
+    </div>
+  </div>
+</div></div>
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+</div>
+
+<aside class="sidebar">
+  <div
+    class="sidebar-inner  sidebar-nav-active sidebar-toc-active">
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-toc">
+        文章目录
+      </li>
+      <li class="sidebar-nav-overview">
+        站点概览
+      </li>
+    </ul>
+
+    <div class="sidebar-panel-container">
+      
+      <section class="post-toc-wrap sidebar-panel">
+        
+        <div class="post-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用-hexo-搭建个人博客流程记录">使用 Hexo 搭建个人博客流程记录</a>
+      <ul>
+        <li><a href="#准备工作">准备工作</a></li>
+        <li><a href="#搭建流程">搭建流程</a></li>
+        <li><a href="#后续更新">后续更新</a></li>
+        <li><a href="#最新更新---重构源文件结构--分离主题配置">最新更新 - 重构源文件结构 + 分离主题配置</a></li>
+        <li><a href="#quick-start">Quick Start</a>
+          <ul>
+            <li><a href="#create-a-new-post">Create a new post</a></li>
+            <li><a href="#run-server">Run server</a></li>
+            <li><a href="#generate-static-files">Generate static files</a></li>
+            <li><a href="#deploy-to-remote-sites">Deploy to remote sites</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+      </section>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+
+        <div class="site-author site-overview-item animated">
+          <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+          <p class="site-author-name" itemprop="name">Hotsnow</p>
+          <div class="site-description" itemprop="description"></div>
+        </div>
+
+        <div class="site-state-wrap site-overview-item animated">
+          <nav class="site-state">
+            <div class="site-state-item site-state-posts">
+              <a href="/posts/">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+            
+          </nav>
+        </div>
+
+        <div class="links-of-author site-overview-item animated">
+          <span class="links-of-author-item">
+            <a href="https://github.com/hotsnow-sean" title="GitHub → https://github.com/hotsnow-sean" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github fa-fw"></i>GitHub
+            </a>
+          </span>
+        </div>
+
+        <div class="cc-license site-overview-item animated" itemprop="license">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank"
+            rel="noopener">
+            <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+          </a>
+        </div>
+
+        
+        <div class="links-of-blogroll site-overview-item animated">
+          <div class="links-of-blogroll-title">
+            <i class="fa fa-globe fa-fw"></i>
+            欢迎访问
+          </div>
+          <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://space.bilibili.com/21290512" title="https://space.bilibili.com/21290512" target="_blank" rel="noopener noreferrer">Bilibili-炎军逸雪的个人空间</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://gitee.com/smallsean" title="https://gitee.com/smallsean" target="_blank" rel="noopener noreferrer">Gitee-码云</a>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </div>
+
+  </div>
+</aside>
+<div class="sidebar-dimmer"></div>
+
+    </header>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span>0%</span>
+    </div>
+    <div class="reading-progress-bar"></div>
+    <a href="https://github.com/hotsnow-sean" class="github-corner"
+      title="Follow me on GitHub" target="_blank" rel="noopener noreferrer">
+      <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <div class="main-inner page posts-expand">
+<div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content">
+    <link itemprop="mainEntityOfPage" href="http://hotsnow-sean.github.io/posts/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+      <meta itemprop="name" content="Hotsnow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hotsnow&#39;s Island">
+    </span>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Hello World - Hexo and Next Guild
+      </h1>
+
+      <div class="post-meta-container">
+        <div class="post-meta">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-calendar"></i>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2020-07-05 13:36:38" itemprop="dateCreated datePublished"
+      datetime="2020-07-05 13:36:38 &#43;0800 CST">2020-07-05</time>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-calendar-check"></i>
+    </span>
+    <span class="post-meta-item-text">更新于</span>
+    <time title="修改时间：2020-07-10 08:37:18" itemprop="dateModified"
+      datetime="2020-07-10 08:37:18 &#43;0800 CST">2020-07-10</time>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-folder"></i>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+      <a href="http://hotsnow-sean.github.io/categories/%E4%BA%91%E7%9A%84%E6%97%85%E9%80%94/" itemprop="url" rel="index"><span itemprop="name">云的旅途</span></a>
+    </span>
+    
+  </span>
+</div>
+      </div>
+    </header>
+
+    <div class="post-body" itemprop="articleBody">
+      <p><img src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200707210446.png" alt="">
+第一篇博文，没什么内容，依旧充满情怀地对这个世界问声好，Hello world!<br>
+其实是由于 hexo 搭建博客必须保证至少有一篇博文才能正常使用，233，顺便简单记录一下搭建博客的过程</p>
+<h1 id="使用-hexo-搭建个人博客流程记录">使用 Hexo 搭建个人博客流程记录</h1>
+<h2 id="准备工作">准备工作</h2>
+<p>必要安装的软件程序：nodejs、git
+需要的账号：github 账户</p>
+<h2 id="搭建流程">搭建流程</h2>
+<ol>
+<li>在 github 上创建一个仓库，仓库名为 <code>GitHub用户名.github.io</code>，搭建完成后将用这个链接访问博客</li>
+<li>运行 <code>npm install -g hexo-cli</code> 安装 <code>hexo</code></li>
+<li>在本地新建文件夹用于存储相关内容，然后进入此文件夹，命令行下运行 <code>hexo init</code>，等待运行完毕，脚手架工具将在此文件夹下创建好所需的所有文件</li>
+<li>到这一步，其实已经可以在本地查看博客页面了，运行 <code>hexo serve</code> 或 <code>hexo s</code>，即可打开本地服务器，打开浏览器访问 <code>localhost:4000</code>，啪唧，博客出现了<img src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200706203100.png" alt=""></li>
+<li>当然，我们还需要将其部署到远端 GitHub 上，也就是第一步创建的仓库。打开本地博客文件夹下的 <code>_config.yml</code> 文件，翻到文件底部<code>deploy</code>配置项，将<code>type</code>设为<code>git</code>，将<code>repo</code>设为仓库的 GitHub 链接地址，将<code>branch</code>设为<code>master</code>。</li>
+<li>配置好后，运行 <code>hexo d</code> 即可部署博客到仓库了（过程中可能需要登录 git 账户）</li>
+<li>OK，万事俱备，已经可以通过第一步中的链接正常访问博客喽！！！接下来就让无处安放的才华在这里生根发芽吧，冲冲冲 👊👊👊</li>
+</ol>
+<h2 id="后续更新">后续更新</h2>
+<p>为了备份 hexo 源码到仓库，实现多终端无缝衔接撰写博客，作以下步骤：</p>
+<ol>
+<li>在博客部署所在的仓库新建分支 <code>hexo</code>，并设为默认</li>
+<li>在本地将仓库克隆下来</li>
+<li>将克隆到的文件夹里除 <code>.git</code> 文件夹之外全部删除</li>
+<li>将原博客文件夹里除 <code>.deploy_git</code> 和 <code>public</code> 之外的所有文件文件夹移动到新克隆下的文件夹里</li>
+<li>到此，就可以使用 <code>git push</code> 等相关操作将源码文件上传到 hexo 分支了，当更换设备后可以直接克隆下来运行 <code>npm install</code> 后继续编写
+注意点：</li>
+</ol>
+<ul>
+<li>将主题文件夹里面的 <code>.git</code> 删除，因为仓库无法嵌套上传</li>
+<li>使用 <code>.gitignore</code> 文件，将 <code>node_modules</code> 文件夹以及第 4 步提到的文件夹排除在上传之外</li>
+</ul>
+<h2 id="最新更新---重构源文件结构--分离主题配置">最新更新 - 重构源文件结构 + 分离主题配置</h2>
+<p>由于主题文件经常会有更新，如果直接在主题内部配置，当你更新主题时你的配置项将全部消失需要重新配置。因此采用 Next 主题 推荐的方式进行配置，完全不改动主题文件夹，这样就可以使用 <code>git pull</code> 来直接拉取最新主题并且保留原本的配置了。具体做法如下：</p>
+<ol>
+<li>选择一种配置方式，Next 主题提供两种方式：</li>
+</ol>
+<ul>
+<li>一是直接在 Hexo 项目的配置文件 <code>_config.yml</code> 中加入 <code>theme_config</code> 选项，有关主题的配置都写在这个配置项下面；</li>
+<li>二是在项目的 <code>source/_data</code> 文件夹下（没有就创建），创建 <code>next.yml</code> 文件，主题配置可直接写入这个文件
+✨ 这里我选择第二种方式，因为第一种方式在修改后必须重启 <code>hexo serve</code> 才能看到效果（如果正在<code>serve</code>），并且和项目配置混在一个文件，还需要多缩进一格，感觉不是很爽就对了。【注：经实测，第二种方式的修改也不会像直接修改主题内部配置那样立刻应用到页面上，但是也不需要重启 <code>serve</code>，多保存几次或者等一会儿都可以】</li>
+</ul>
+<ol start="2">
+<li>将需要改变的主题配置项复制到 <code>next.yml</code> 文件，修改保存即可</li>
+<li>除配置项外，样式文件也可以分离修改，在主题配置文件中有 <code>custom_file_path</code> 这样一项配置，将其中的 <code>variable</code>、<code>style</code> 选项打开，并按照其路径名称在 <code>source/_data</code> 文件夹下建立相应文件，之后，主题中 <code>source/css/_variables</code> 文件夹里所有需要修改的样式都可以放入对应新建立的文件里，而其它需要修改的样式则可以放入新建立的另一个文件里。</li>
+</ol>
+<hr>
+<p>默认 Hexo 文档哦 👇</p>
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hexo new <span style="color:#4070a0">&#34;My New Post&#34;</span>
+</code></pre></div><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hexo server
+</code></pre></div><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hexo generate
+</code></pre></div><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hexo deploy
+</code></pre></div><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    </div>
+
+    
+
+    <footer class="post-footer">
+      <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i>
+        感谢您的阅读-------------</div>
+      <div class="post-copyright">
+  <ul>
+    <li class="post-copyright-author">
+      <strong>本文作者： </strong>Hotsnow
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接： </strong>
+      <a href="http://hotsnow-sean.github.io/posts/hello-world/" title="Hello World - Hexo and Next Guild">http://hotsnow-sean.github.io/posts/hello-world/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</div>
+
+      <div class="post-tags">
+        
+        <a href="http://hotsnow-sean.github.io/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 博客</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+        
+      </div>
+
+      
+      <div class="post-nav">
+        <div class="post-nav-item">
+          
+        </div>
+        <div class="post-nav-item">
+          
+          <a rel="next" href="http://hotsnow-sean.github.io/posts/arch-install-guide/" title="Arch安装向导">Arch安装向导 <i class="fa fa-chevron-right"></i></a>
+          
+        </div>
+      </div>
+      
+    </footer>
+  </article>
+</div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner"><div class="copyright">
+  &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hotsnow</span>
+</div>
+<div>本站基于 Hugo 框架 + Next 主题</div>
+</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/motion.js"></script>
+  <script src="/js/next-boot.js"></script>
+  <script src="/js/local-search.js"></script>
+  <script>
+  var pjax = new Pjax({
+    selectors: [
+      'head title',
+      '.page-configurations',
+      '.menu-item',
+      '.main-inner',
+      '.post-toc-wrap',
+      '.languages',
+      '.pjax'
+    ],
+    analytics: false,
+    cacheBust: false,
+    scrollRestoration: false,
+    scrollTo: true
+  });
+
+  document.addEventListener('pjax:success', () => {
+    
+    NexT.boot.refresh();
+    Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
+      $target.classList.add('animated');
+    })
+    
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+    const hasTOC = document.querySelector('.post-toc');
+    document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+    document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+    NexT.utils.updateSidebarPosition();
+  });
+</script>
+  <div class="pjax">
+    
+  </div>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+</body>
+
+</html>

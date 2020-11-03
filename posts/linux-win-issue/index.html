@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
+<link rel="manifest" href="/images/site.webmanifest">
+
+<link rel="stylesheet" href="http://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css"><title>Linux双系统问题杂谈（持续更新） | Hotsnow&#39;s Island</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hotsnow&#39;s Island</h1>
+      <i class="logo-line"></i>
+    </a>
+    
+    <p class="site-subtitle" itemprop="description">仰观浮云，俯惹尘埃</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+    
+    <li class="menu-item">
+      <a href="/" rel="section"><i class='fa fa-home fa-fw'></i>首页
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/about/" rel="section"><i class='fa fa fa-user fa-fw'></i>关于
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/tags/" rel="section"><i class='fa fa-tags fa-fw'></i>标签<span class="badge">12</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/categories/" rel="section"><i class='fa fa-th fa-fw'></i>分类<span class="badge">3</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/posts/" rel="section"><i class='fa fa-archive fa-fw'></i>归档<span class="badge">14</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/collection/" rel="section"><i class='fa fa-book fa-fw'></i>珍宝阁
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/sitemap.xml" rel="section"><i class='fa fa-sitemap fa-fw'></i>站点地图
+      </a>
+    </li>
+    
+
+    <li class="menu-item menu-item-search">
+      <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-pop-overlay">
+  <div class="popup search-popup">
+    <div class="search-header">
+      <span class="search-icon">
+        <i class="fa fa-search"></i>
+      </span>
+      <div class="search-input-container">
+        <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false"
+          type="search" class="search-input">
+      </div>
+      <span class="popup-btn-close">
+        <i class="fa fa-times-circle"></i>
+      </span>
+    </div>
+    <div class="search-result-container no-result">
+      <div class="search-result-icon">
+        <i class="fa fa-spinner fa-pulse fa-5x"></i>
+      </div>
+    </div>
+  </div>
+</div></div>
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+</div>
+
+<aside class="sidebar">
+  <div
+    class="sidebar-inner  sidebar-nav-active sidebar-toc-active">
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-toc">
+        文章目录
+      </li>
+      <li class="sidebar-nav-overview">
+        站点概览
+      </li>
+    </ul>
+
+    <div class="sidebar-panel-container">
+      
+      <section class="post-toc-wrap sidebar-panel">
+        
+        <div class="post-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#要删除双系统时的操作不用多余软件方法来自网上">要删除双系统时的操作（不用多余软件，方法来自网上）</a></li>
+        <li><a href="#linux-和-windows-时间不统一解决办法二者选其一">Linux 和 Windows 时间不统一解决办法（二者选其一）</a></li>
+        <li><a href="#linux-下键盘灯光控制">Linux 下键盘灯光控制</a></li>
+        <li><a href="#linux-获取窗口类信息">linux 获取窗口类信息</a></li>
+        <li><a href="#grub2-命令行启动-linux-系统">grub2 命令行启动 Linux 系统</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+      </section>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+
+        <div class="site-author site-overview-item animated">
+          <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+          <p class="site-author-name" itemprop="name">Hotsnow</p>
+          <div class="site-description" itemprop="description"></div>
+        </div>
+
+        <div class="site-state-wrap site-overview-item animated">
+          <nav class="site-state">
+            <div class="site-state-item site-state-posts">
+              <a href="/posts/">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+            
+          </nav>
+        </div>
+
+        <div class="links-of-author site-overview-item animated">
+          <span class="links-of-author-item">
+            <a href="https://github.com/hotsnow-sean" title="GitHub → https://github.com/hotsnow-sean" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github fa-fw"></i>GitHub
+            </a>
+          </span>
+        </div>
+
+        <div class="cc-license site-overview-item animated" itemprop="license">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank"
+            rel="noopener">
+            <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+          </a>
+        </div>
+
+        
+        <div class="links-of-blogroll site-overview-item animated">
+          <div class="links-of-blogroll-title">
+            <i class="fa fa-globe fa-fw"></i>
+            欢迎访问
+          </div>
+          <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://space.bilibili.com/21290512" title="https://space.bilibili.com/21290512" target="_blank" rel="noopener noreferrer">Bilibili-炎军逸雪的个人空间</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://gitee.com/smallsean" title="https://gitee.com/smallsean" target="_blank" rel="noopener noreferrer">Gitee-码云</a>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </div>
+
+  </div>
+</aside>
+<div class="sidebar-dimmer"></div>
+
+    </header>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span>0%</span>
+    </div>
+    <div class="reading-progress-bar"></div>
+    <a href="https://github.com/hotsnow-sean" class="github-corner"
+      title="Follow me on GitHub" target="_blank" rel="noopener noreferrer">
+      <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <div class="main-inner page posts-expand">
+<div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content">
+    <link itemprop="mainEntityOfPage" href="http://hotsnow-sean.github.io/posts/linux-win-issue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+      <meta itemprop="name" content="Hotsnow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hotsnow&#39;s Island">
+    </span>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Linux双系统问题杂谈（持续更新）
+      </h1>
+
+      <div class="post-meta-container">
+        <div class="post-meta">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-calendar"></i>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2020-07-11 20:21:56" itemprop="dateCreated datePublished"
+      datetime="2020-07-11 20:21:56 &#43;0800 CST">2020-07-11</time>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-folder"></i>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+      <a href="http://hotsnow-sean.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+    </span>
+    
+  </span>
+</div>
+      </div>
+    </header>
+
+    <div class="post-body" itemprop="articleBody">
+      <p><img src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200707211141.png" alt="">
+玩 ArchLinux 双系统时遇到的一些小问题，记录一下</p>
+<h2 id="要删除双系统时的操作不用多余软件方法来自网上">要删除双系统时的操作（不用多余软件，方法来自网上）</h2>
+<ol>
+<li>首先将分给 Linux 的磁盘空间在 windows 的磁盘管理中进行格式化或删除卷，如果你不用这块空间的话不删除也无伤大雅；</li>
+<li>接下来分两步，之间无顺序要求：
+<ol>
+<li>删除多余启动项（cmd 依次运行命令）
+<ul>
+<li>step1：管理员权限运行 <code>Bcdedit /enum firmware</code>，找到带有 Linux 字样的那一项，把它的标识符复制下来</li>
+<li>step2：保存现有引导项 <code>Bcdedit /export savebcd</code></li>
+<li>step3：删除多余引导项 <code>Bcdedit /store savebcd /delete {2eda5080-380c-11ea-b5c6-806e6f6e6963}</code> 大括号里的值换成第一步记录的标识符</li>
+<li>step4：导入处理好的文件 <code>Bcdedit /clean /import savebcd</code></li>
+</ul>
+</li>
+<li>删除多余引导项文件
+  启动项被删除之后只是启动时我们看不见选项了，但是实际上启动项文件依旧在磁盘里存放着，当然也要给它干掉咯。 + step1：打开 cmd 运行 <code>diskpart</code> + step2：在新窗口输入 <code>list disk</code> + step3：根据实际情况选择磁盘 <code>select disk 0</code>，把 0 换成启动分区所在的磁盘号 + step4：列出所选磁盘分区 <code>list partition</code> + step5：选中 EFI 所在分区 <code>select partition 1</code>，把 1 换成启动分区的编号，一般是那个 100M 或 512M 大的分区 + step5：给所选分区分配盘符 <code>assign letter=p</code> + step6：管理员权限打开记事本，按下打开文件选项，在此窗口中对相关文件进行删除操作 + step7：回到 diskpart 窗口，取消盘符分配 <code>remove letter=p</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="linux-和-windows-时间不统一解决办法二者选其一">Linux 和 Windows 时间不统一解决办法（二者选其一）</h2>
+<ul>
+<li>case1：在 Linux 终端输入 <code>sudo hwclock --systohc --localtime</code></li>
+<li>case2：在 windows 下运行 &lt; regedit &gt; 打开注册表
+依次进入 <code>\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation</code>
+新建名为 <code>RealTimeIsUniversal</code> 的 &lt; QWORD &gt; 值，令其为 <code>1 [十六进制]</code></li>
+</ul>
+<h2 id="linux-下键盘灯光控制">Linux 下键盘灯光控制</h2>
+<p>貌似只能用命令控制：</p>
+<ul>
+<li>linux 开启键盘灯光 <code>xset led named 'Scroll Lock'</code></li>
+<li>linux 关闭键盘灯光 <code>xset -led named 'Scroll Lock'</code></li>
+</ul>
+<h2 id="linux-获取窗口类信息">linux 获取窗口类信息</h2>
+<p>忘了有什么用了，反正运行后可以看到窗口的相关信息
+<code>xprop | awk ' /^WM_CLASS/{sub(/.* =/, &quot;instance:&quot;); sub(/,/, &quot;\nclass:&quot;); print} /^WM_NAME/{sub(/.* =/, &quot;title:&quot;); print}'</code></p>
+<h2 id="grub2-命令行启动-linux-系统">grub2 命令行启动 Linux 系统</h2>
+<p>有时候启动系统莫名奇妙卡到 grub 的命令行，这时如果 linux 系统本身完好，可以用以下命令启动：</p>
+<ol>
+<li><code>ls</code> 查看磁盘及分区信息，可以用来寻找 grub 所在分区</li>
+<li><code>set root=(hdX,X)</code> 选中找到的分区</li>
+<li><code>linux /[linux内核文件] root=/dev/sdXX</code> 内核文件就在所选分区内，文件名开头为 vmi，后面的 root 路径为根目录所在分区，不确定可以查看<code>etc/fstab</code>文件</li>
+<li><code>initrd /[init文件]</code> init 文件同样在所选分区，文件名开头为 init，后缀为 img</li>
+<li><code>boot</code></li>
+</ol>
+<p><em>待续&hellip;&hellip;</em></p>
+    </div>
+
+    
+<div class="popular-posts-header">相关文章</div>
+<ul class="popular-posts">
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/arch-install-guide/" rel="bookmark">Arch安装向导</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/hexo-next-theme-issue/" rel="bookmark">Hexo-Next主题 可能遇到的问题解决方案（持续更新）</a></div>
+  </li>
+</ul>
+
+    <footer class="post-footer">
+      <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i>
+        感谢您的阅读-------------</div>
+      <div class="post-copyright">
+  <ul>
+    <li class="post-copyright-author">
+      <strong>本文作者： </strong>Hotsnow
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接： </strong>
+      <a href="http://hotsnow-sean.github.io/posts/linux-win-issue/" title="Linux双系统问题杂谈（持续更新）">http://hotsnow-sean.github.io/posts/linux-win-issue/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</div>
+
+      <div class="post-tags">
+        
+        <a href="http://hotsnow-sean.github.io/tags/linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/archlinux/" rel="tag"><i class="fa fa-tag"></i> ArchLinux</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/helper/" rel="tag"><i class="fa fa-tag"></i> Helper</a>
+        
+      </div>
+
+      
+      <div class="post-nav">
+        <div class="post-nav-item">
+          
+          <a rel="prev" href="http://hotsnow-sean.github.io/posts/knapsack-problem-05/" title="背包九讲（五） 二维费用背包"><i class="fa fa-chevron-left"></i> 背包九讲（五） 二维费用背包</a>
+          
+        </div>
+        <div class="post-nav-item">
+          
+          <a rel="next" href="http://hotsnow-sean.github.io/posts/knapsack-problem-06/" title="背包九讲（六） 分组背包">背包九讲（六） 分组背包 <i class="fa fa-chevron-right"></i></a>
+          
+        </div>
+      </div>
+      
+    </footer>
+  </article>
+</div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner"><div class="copyright">
+  &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hotsnow</span>
+</div>
+<div>本站基于 Hugo 框架 + Next 主题</div>
+</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/motion.js"></script>
+  <script src="/js/next-boot.js"></script>
+  <script src="/js/local-search.js"></script>
+  <script>
+  var pjax = new Pjax({
+    selectors: [
+      'head title',
+      '.page-configurations',
+      '.menu-item',
+      '.main-inner',
+      '.post-toc-wrap',
+      '.languages',
+      '.pjax'
+    ],
+    analytics: false,
+    cacheBust: false,
+    scrollRestoration: false,
+    scrollTo: true
+  });
+
+  document.addEventListener('pjax:success', () => {
+    
+    NexT.boot.refresh();
+    Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
+      $target.classList.add('animated');
+    })
+    
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+    const hasTOC = document.querySelector('.post-toc');
+    document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+    document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+    NexT.utils.updateSidebarPosition();
+  });
+</script>
+  <div class="pjax">
+    
+  </div>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+</body>
+
+</html>

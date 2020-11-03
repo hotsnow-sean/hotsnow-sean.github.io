@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on Hotsnow&#39;s Island</title>
+    <link>http://hotsnow-sean.github.io/categories/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on Hotsnow&#39;s Island</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 17 Aug 2020 19:51:31 +0800</lastBuildDate><atom:link href="http://hotsnow-sean.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>回溯算法</title>
+      <link>http://hotsnow-sean.github.io/posts/backtracking-algorithm/</link>
+      <pubDate>Mon, 17 Aug 2020 19:51:31 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/backtracking-algorithm/</guid>
+      <description>&lt;div class=&#34;note info no-icon&#34;&gt;
+&amp;emsp;&amp;emsp;A backtracking algorithm tries to construct a solution to a computational problem incrementally, one small piece at a time. Whenever the algorithm needs to decide between multiple alternatives to the next component of the solution, it recursively evaluates every alternative and then chooses the best one.&lt;p style=&#34;text-align: right&#34;&gt;——_Algorithms-JeffE_&lt;/p&gt;
+
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（九） 背包问题求具体方案</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-09/</link>
+      <pubDate>Mon, 03 Aug 2020 15:05:36 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-09/</guid>
+      <description>&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有 $N$ 件物品和一个容量是 $V$ 的背包。每件物品只能使用一次。
+第 $i$ 件物品的体积是 $v_i$，价值是 $w_i$。
+求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。
+输出 字典序最小的方案。这里的字典序是指：所选物品的编号所构成的序列。物品的编号范围是 $1…N$。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（八） 背包问题求方案数</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-08/</link>
+      <pubDate>Thu, 30 Jul 2020 14:55:11 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-08/</guid>
+      <description>&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有 $N$ 件物品和一个容量是 $V$ 的背包。每件物品只能使用一次。
+第 $i$ 件物品的体积是 $v_i$，价值是 $w_i$。
+求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。
+输出 最优选法的方案数。注意答案可能很大，请输出答案模 $10^9+7$ 的结果。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（七） 有依赖背包</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-07/</link>
+      <pubDate>Tue, 14 Jul 2020 08:00:44 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-07/</guid>
+      <description>&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有 $N$ 种物品和一个容量为 $V$ 的背包。
+物品之间具有依赖关系，且依赖关系组成一棵树的形状。如果选择一个物品，则必须选择它的父节点。
+如下图所示：&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（六） 分组背包</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-06/</link>
+      <pubDate>Sun, 12 Jul 2020 07:31:38 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-06/</guid>
+      <description>&lt;h1 id=&#34;-分组背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 分组背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
+&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有 $N$ 种物品和一个容量为 $V$ 的背包。
+每组物品有若干个，同一组内的物品最多只能选一个。
+每件物品的体积是 $v_{ij}$，价值是 $w_{ij}$，其中 $i$ 是组号，$j$ 是组内编号。
+求解哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（五） 二维费用背包</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-05/</link>
+      <pubDate>Sat, 11 Jul 2020 19:24:45 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-05/</guid>
+      <description>&lt;h1 id=&#34;-二维费用背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 二维费用背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
+&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有 $N$ 件物品和一个容量为 $V$ 的背包，背包能承受的最大重量是 $M$。
+每件物品只能用一次。体积是 $v_i$，重量是 $m_i$，价值是 $w_i$。
+求解哪些物品装入背包，可使这些物品的总体积不超过背包容量，总重量不超过背包可承受的最大重量，且价值总和最大。
+输出最大价值。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（四） 混合背包</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-04/</link>
+      <pubDate>Sat, 11 Jul 2020 10:55:43 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-04/</guid>
+      <description>&lt;h1 id=&#34;-混合背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 混合背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
+&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有 $N$ 种物品和一个容量为 $V$ 的背包。
+物品一共有三类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一类物品只能用 1 次（01 背包）；&lt;/li&gt;
+&lt;li&gt;第二类物品可以用无限多次（完全背包）；&lt;/li&gt;
+&lt;li&gt;第三类物品最多只能用 $s_i$ 次（多重背包）；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每种体积是 $v_i$，价值是 $w_i$。
+求解哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（三） 多重背包</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-03/</link>
+      <pubDate>Wed, 08 Jul 2020 16:50:41 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-03/</guid>
+      <description>&lt;h1 id=&#34;-多重背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 多重背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
+&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有 $N$ 种物品和一个容量为 $V$ 的背包。
+第 $i$ 种物品最多有 $s_i$ 件，每件体积是 $v_i$，价值是 $w_i$。
+求解哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（二） 完全背包</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-02/</link>
+      <pubDate>Wed, 08 Jul 2020 08:55:39 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-02/</guid>
+      <description>&lt;h1 id=&#34;-完全背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943&#34;&gt;🎒 完全背包问题 (&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/h1&gt;
+&lt;h2 id=&#34;-题目&#34;&gt;❓ 题目&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有 $N$ 件物品和一个容量为 $V$ 的背包，每种物品都有无限件可用。
+第 $i$ 件物品的体积是 $v_i$，价值是 $w_i$。
+求解哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲（一） 01背包</title>
+      <link>http://hotsnow-sean.github.io/posts/knapsack-problem-01/</link>
+      <pubDate>Tue, 07 Jul 2020 08:13:17 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/knapsack-problem-01/</guid>
+      <description>&lt;p&gt;学习来源：&lt;a href=&#34;https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;amp;seid=7823159650487960943&#34;&gt;B 站大雪莱-背包九讲专题 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;背包问题(Knapsack problem)是一种组合优化的 NP 完全问题。问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。问题的名称来源于如何选择最合适的物品放置于给定背包中。相似问题经常出现在商业、组合数学，计算复杂性理论、密码学和应用数学等领域中。也可以将背包问题描述为决定性问题，即在总重量不超过 W 的前提下，总价值是否能达到 V？它是在 1978 年由 Merkle 和 Hellman 提出的。&lt;a href=&#34;https://baike.baidu.com/item/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/2416931?fr=aladdin&#34; title=&#34;百度百科&#34;&gt;&lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;-01-背包问题&#34;&gt;🎒 01 背包问题&lt;/h1&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
+<link rel="manifest" href="/images/site.webmanifest">
+
+<link rel="stylesheet" href="http://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css"><title>背包九讲（七） 有依赖背包 | Hotsnow&#39;s Island</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hotsnow&#39;s Island</h1>
+      <i class="logo-line"></i>
+    </a>
+    
+    <p class="site-subtitle" itemprop="description">仰观浮云，俯惹尘埃</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+    
+    <li class="menu-item">
+      <a href="/" rel="section"><i class='fa fa-home fa-fw'></i>首页
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/about/" rel="section"><i class='fa fa fa-user fa-fw'></i>关于
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/tags/" rel="section"><i class='fa fa-tags fa-fw'></i>标签<span class="badge">12</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/categories/" rel="section"><i class='fa fa-th fa-fw'></i>分类<span class="badge">3</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/posts/" rel="section"><i class='fa fa-archive fa-fw'></i>归档<span class="badge">14</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/collection/" rel="section"><i class='fa fa-book fa-fw'></i>珍宝阁
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/sitemap.xml" rel="section"><i class='fa fa-sitemap fa-fw'></i>站点地图
+      </a>
+    </li>
+    
+
+    <li class="menu-item menu-item-search">
+      <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-pop-overlay">
+  <div class="popup search-popup">
+    <div class="search-header">
+      <span class="search-icon">
+        <i class="fa fa-search"></i>
+      </span>
+      <div class="search-input-container">
+        <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false"
+          type="search" class="search-input">
+      </div>
+      <span class="popup-btn-close">
+        <i class="fa fa-times-circle"></i>
+      </span>
+    </div>
+    <div class="search-result-container no-result">
+      <div class="search-result-icon">
+        <i class="fa fa-spinner fa-pulse fa-5x"></i>
+      </div>
+    </div>
+  </div>
+</div></div>
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+</div>
+
+<aside class="sidebar">
+  <div
+    class="sidebar-inner  sidebar-nav-active sidebar-toc-active">
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-toc">
+        文章目录
+      </li>
+      <li class="sidebar-nav-overview">
+        站点概览
+      </li>
+    </ul>
+
+    <div class="sidebar-panel-container">
+      
+      <section class="post-toc-wrap sidebar-panel">
+        
+        <div class="post-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-题目">❓ 题目</a></li>
+        <li><a href="#-解决方案">✅ 解决方案</a>
+          <ul>
+            <li><a href="#思路">思路</a></li>
+            <li><a href="#代码">代码</a></li>
+          </ul>
+        </li>
+        <li><a href="#-学习来源">🔍 学习来源</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+      </section>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+
+        <div class="site-author site-overview-item animated">
+          <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+          <p class="site-author-name" itemprop="name">Hotsnow</p>
+          <div class="site-description" itemprop="description"></div>
+        </div>
+
+        <div class="site-state-wrap site-overview-item animated">
+          <nav class="site-state">
+            <div class="site-state-item site-state-posts">
+              <a href="/posts/">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+            
+          </nav>
+        </div>
+
+        <div class="links-of-author site-overview-item animated">
+          <span class="links-of-author-item">
+            <a href="https://github.com/hotsnow-sean" title="GitHub → https://github.com/hotsnow-sean" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github fa-fw"></i>GitHub
+            </a>
+          </span>
+        </div>
+
+        <div class="cc-license site-overview-item animated" itemprop="license">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank"
+            rel="noopener">
+            <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+          </a>
+        </div>
+
+        
+        <div class="links-of-blogroll site-overview-item animated">
+          <div class="links-of-blogroll-title">
+            <i class="fa fa-globe fa-fw"></i>
+            欢迎访问
+          </div>
+          <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://space.bilibili.com/21290512" title="https://space.bilibili.com/21290512" target="_blank" rel="noopener noreferrer">Bilibili-炎军逸雪的个人空间</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://gitee.com/smallsean" title="https://gitee.com/smallsean" target="_blank" rel="noopener noreferrer">Gitee-码云</a>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </div>
+
+  </div>
+</aside>
+<div class="sidebar-dimmer"></div>
+
+    </header>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span>0%</span>
+    </div>
+    <div class="reading-progress-bar"></div>
+    <a href="https://github.com/hotsnow-sean" class="github-corner"
+      title="Follow me on GitHub" target="_blank" rel="noopener noreferrer">
+      <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <div class="main-inner page posts-expand">
+<div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content">
+    <link itemprop="mainEntityOfPage" href="http://hotsnow-sean.github.io/posts/knapsack-problem-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+      <meta itemprop="name" content="Hotsnow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hotsnow&#39;s Island">
+    </span>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">背包九讲（七） 有依赖背包
+      </h1>
+
+      <div class="post-meta-container">
+        <div class="post-meta">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-calendar"></i>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2020-07-14 08:00:44" itemprop="dateCreated datePublished"
+      datetime="2020-07-14 08:00:44 &#43;0800 CST">2020-07-14</time>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-folder"></i>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+      <a href="http://hotsnow-sean.github.io/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+    </span>
+    
+  </span>
+</div>
+      </div>
+    </header>
+
+    <div class="post-body" itemprop="articleBody">
+      <h2 id="-题目">❓ 题目</h2>
+<blockquote>
+<p>有 $N$ 种物品和一个容量为 $V$ 的背包。
+物品之间具有依赖关系，且依赖关系组成一棵树的形状。如果选择一个物品，则必须选择它的父节点。
+如下图所示：</p>
+</blockquote>
+<pre><code class="language-mermaid" data-lang="mermaid">graph TB
+  1((1)) --- 2((2)) &amp; 3((3))
+  2 --- 4((4)) &amp; 5((5))
+</code></pre><blockquote>
+<p>如果选择物品 5，则必须选择物品 1 和 2。这是因为 2 是 5 的父节点，1 是 2 的父节点。
+每件物品的编号是 $i$，体积是 $v_i$，价值是 $w_i$，依赖的父节点编号是 $p_i$。物品的下标范围是 $1…N$。
+求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。
+输出最大价值。</p>
+</blockquote>
+<ul>
+<li><strong>输入格式</strong></li>
+</ul>
+<blockquote>
+<p>第一行有两个整数 $N$，$V$，用空格隔开，分别表示物品个数和背包容量。
+接下来有 $N$ 行数据，每行数据表示一个物品。
+第 $i$ 行有三个整数 $v_i,w_i,p_i$，用空格隔开，分别表示物品的体积、价值和依赖的物品编号。
+如果 $p_i = −1$，表示根节点。 数据保证所有物品构成一棵树。</p>
+</blockquote>
+<ul>
+<li><strong>输出格式</strong></li>
+</ul>
+<blockquote>
+<p>输出一个整数，表示最大价值</p>
+</blockquote>
+<ul>
+<li><strong>数据范围</strong></li>
+</ul>
+<blockquote>
+<p>$0 &lt; N,V \leq 100$ &gt; $0 &lt; v_i,w_i \leq 100$
+父节点编号范围：
+ 内部结点：$1\leq p_i\leq N$;
+ 根节点 $p_i = −1$;</p>
+</blockquote>
+<h2 id="-解决方案">✅ 解决方案</h2>
+<h3 id="思路">思路</h3>
+<p>  有依赖的背包问题中所有物品均以树上一个节点的形式存在，所以首先将树给建起来。这里采用邻接表的形式，方便遍历每个节点的子节点，而且以数组形式存储维护起来很轻松。
+  建立数组 $n$，$e$。 其中 $n$ 用来存储每个节点自身的信息以及其第一个子节点在 $e$ 中的 $id$，长度为节点个数；$e$ 数组每个元素存储这条边所对应子节点在 $n$ 中的 $id$，以及下一个子节点在 $e$ 中的 $id$，长度为节点个数减一。通过这种方式只需要两个数组就可以将树信息表示出来。</p>
+<p>  接下来考虑如何进行动态规划。我们可以从树的根节点开始考虑，因为如果拿其它节点的物品，由于父子节点的约束关系，根节点必须被拿才能满足要求。而对于一个根节点，除非它本身的体积已经大于容积上限，否则我们必然从它的所有子树中求出一个最大价值，然后加上自己的价值就得到了最终答案。
+  因此，对于每个节点的求解，又会转化到求其子节点的解，这明显就是递归的思路。最终代码如下。</p>
+<h3 id="代码">代码</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;algorithm&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;cstring&gt;</span><span style="color:#007020">
+</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">using</span> <span style="color:#007020;font-weight:bold">namespace</span> std;
+
+<span style="color:#007020;font-weight:bold">struct</span> <span style="color:#0e84b5;font-weight:bold">Node</span> {
+    <span style="color:#902000">int</span> childID;
+    <span style="color:#902000">int</span> v, w;
+};
+<span style="color:#007020;font-weight:bold">struct</span> <span style="color:#0e84b5;font-weight:bold">CNode</span> {
+    <span style="color:#902000">int</span> next;
+    <span style="color:#902000">int</span> id;
+};
+
+<span style="color:#902000">void</span> <span style="color:#06287e">dfs</span>(Node n[], CNode e[], <span style="color:#902000">int</span> <span style="color:#666">*</span>dp, <span style="color:#902000">int</span> V, <span style="color:#902000">int</span> root) {
+    <span style="color:#902000">int</span> son <span style="color:#666">=</span> n[root].childID;
+    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> V <span style="color:#666">-</span> <span style="color:#40a070">1</span>; j <span style="color:#666">&gt;=</span> n[root].v; <span style="color:#666">--</span>j) {
+        dp[root <span style="color:#666">*</span> V <span style="color:#666">+</span> j] <span style="color:#666">=</span> n[root].w;
+    }
+    <span style="color:#007020;font-weight:bold">while</span> (son <span style="color:#666">!=</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>) {
+        dfs(n, e, dp, V, e[son].id);
+        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> V <span style="color:#666">-</span> <span style="color:#40a070">1</span>; j <span style="color:#666">&gt;=</span> n[root].v; <span style="color:#666">--</span>j) {
+            <span style="color:#902000">int</span> limit <span style="color:#666">=</span> j <span style="color:#666">-</span> n[root].v;
+            <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> k <span style="color:#666">=</span> <span style="color:#40a070">0</span>; k <span style="color:#666">&lt;=</span> limit; <span style="color:#666">++</span>k) {
+                dp[root <span style="color:#666">*</span> V <span style="color:#666">+</span> j] <span style="color:#666">=</span> max(dp[root <span style="color:#666">*</span> V <span style="color:#666">+</span> j], dp[e[son].id <span style="color:#666">*</span> V <span style="color:#666">+</span> k] <span style="color:#666">+</span> dp[root <span style="color:#666">*</span> V <span style="color:#666">+</span> j <span style="color:#666">-</span> k]);
+            }
+        }
+        son <span style="color:#666">=</span> e[son].next;
+    }
+}
+
+<span style="color:#902000">int</span> <span style="color:#06287e">main</span>() {
+    <span style="color:#902000">int</span> N, V;
+    cin <span style="color:#666">&gt;&gt;</span> N <span style="color:#666">&gt;&gt;</span> V;
+    Node n[N];
+    CNode e[N <span style="color:#666">-</span> <span style="color:#40a070">1</span>];
+    <span style="color:#902000">int</span> idx <span style="color:#666">=</span> <span style="color:#40a070">0</span>;
+    memset(n, <span style="color:#666">-</span><span style="color:#40a070">1</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(n));
+    memset(e, <span style="color:#666">-</span><span style="color:#40a070">1</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(e));
+    <span style="color:#902000">int</span> root, tv, tw, tp;
+    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> N; <span style="color:#666">++</span>i) {
+        cin <span style="color:#666">&gt;&gt;</span> tv <span style="color:#666">&gt;&gt;</span> tw <span style="color:#666">&gt;&gt;</span> tp;
+        n[i].v <span style="color:#666">=</span> tv, n[i].w <span style="color:#666">=</span> tw;
+        <span style="color:#007020;font-weight:bold">if</span> (tp <span style="color:#666">==</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>) root <span style="color:#666">=</span> i;
+        <span style="color:#007020;font-weight:bold">else</span> e[idx].next <span style="color:#666">=</span> n[tp <span style="color:#666">-</span> <span style="color:#40a070">1</span>].childID, e[idx].id <span style="color:#666">=</span> i, n[tp <span style="color:#666">-</span> <span style="color:#40a070">1</span>].childID <span style="color:#666">=</span> idx<span style="color:#666">++</span>;
+    }
+    <span style="color:#902000">int</span> dp[N][V <span style="color:#666">+</span> <span style="color:#40a070">1</span>];
+    memset(dp, <span style="color:#40a070">0</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(dp));
+    dfs(n, e, <span style="color:#666">&amp;</span>dp[<span style="color:#40a070">0</span>][<span style="color:#40a070">0</span>], V <span style="color:#666">+</span> <span style="color:#40a070">1</span>, root);
+    cout <span style="color:#666">&lt;&lt;</span> dp[root][V] <span style="color:#666">&lt;&lt;</span> endl;
+    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
+}
+</code></pre></div><h2 id="-学习来源">🔍 学习来源</h2>
+<p><a href="https://www.bilibili.com/video/BV1Qt411R7v8?p=2&amp;t=1608">B 站大雪莱-背包九讲专题 <i class="fa fa-external-link-alt"></i></a></p>
+    </div>
+
+    
+<div class="popular-posts-header">相关文章</div>
+<ul class="popular-posts">
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-06/" rel="bookmark">背包九讲（六） 分组背包</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-05/" rel="bookmark">背包九讲（五） 二维费用背包</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-04/" rel="bookmark">背包九讲（四） 混合背包</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-03/" rel="bookmark">背包九讲（三） 多重背包</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-02/" rel="bookmark">背包九讲（二） 完全背包</a></div>
+  </li>
+</ul>
+
+    <footer class="post-footer">
+      <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i>
+        感谢您的阅读-------------</div>
+      <div class="post-copyright">
+  <ul>
+    <li class="post-copyright-author">
+      <strong>本文作者： </strong>Hotsnow
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接： </strong>
+      <a href="http://hotsnow-sean.github.io/posts/knapsack-problem-07/" title="背包九讲（七） 有依赖背包">http://hotsnow-sean.github.io/posts/knapsack-problem-07/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</div>
+
+      <div class="post-tags">
+        
+        <a href="http://hotsnow-sean.github.io/tags/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" rel="tag"><i class="fa fa-tag"></i> 背包九讲</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+        
+      </div>
+
+      
+      <div class="post-nav">
+        <div class="post-nav-item">
+          
+          <a rel="prev" href="http://hotsnow-sean.github.io/posts/knapsack-problem-06/" title="背包九讲（六） 分组背包"><i class="fa fa-chevron-left"></i> 背包九讲（六） 分组背包</a>
+          
+        </div>
+        <div class="post-nav-item">
+          
+          <a rel="next" href="http://hotsnow-sean.github.io/posts/knapsack-problem-08/" title="背包九讲（八） 背包问题求方案数">背包九讲（八） 背包问题求方案数 <i class="fa fa-chevron-right"></i></a>
+          
+        </div>
+      </div>
+      
+    </footer>
+  </article>
+</div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner"><div class="copyright">
+  &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hotsnow</span>
+</div>
+<div>本站基于 Hugo 框架 + Next 主题</div>
+</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/motion.js"></script>
+  <script src="/js/next-boot.js"></script>
+  <script src="/js/local-search.js"></script>
+  <script>
+  var pjax = new Pjax({
+    selectors: [
+      'head title',
+      '.page-configurations',
+      '.menu-item',
+      '.main-inner',
+      '.post-toc-wrap',
+      '.languages',
+      '.pjax'
+    ],
+    analytics: false,
+    cacheBust: false,
+    scrollRestoration: false,
+    scrollTo: true
+  });
+
+  document.addEventListener('pjax:success', () => {
+    
+    NexT.boot.refresh();
+    Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
+      $target.classList.add('animated');
+    })
+    
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+    const hasTOC = document.querySelector('.post-toc');
+    document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+    document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+    NexT.utils.updateSidebarPosition();
+  });
+</script>
+  <div class="pjax">
+    
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: { '[+]': [['$', '$']] },
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = { node: text, delim: '', n: 0 };
+              math.end = { node: text, delim: '', n: 0 };
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+  </div>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+</body>
+
+</html>

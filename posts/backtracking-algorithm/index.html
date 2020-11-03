@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
+<link rel="manifest" href="/images/site.webmanifest">
+
+<link rel="stylesheet" href="http://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css"><title>回溯算法 | Hotsnow&#39;s Island</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hotsnow&#39;s Island</h1>
+      <i class="logo-line"></i>
+    </a>
+    
+    <p class="site-subtitle" itemprop="description">仰观浮云，俯惹尘埃</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+    
+    <li class="menu-item">
+      <a href="/" rel="section"><i class='fa fa-home fa-fw'></i>首页
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/about/" rel="section"><i class='fa fa fa-user fa-fw'></i>关于
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/tags/" rel="section"><i class='fa fa-tags fa-fw'></i>标签<span class="badge">12</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/categories/" rel="section"><i class='fa fa-th fa-fw'></i>分类<span class="badge">3</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/posts/" rel="section"><i class='fa fa-archive fa-fw'></i>归档<span class="badge">14</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/collection/" rel="section"><i class='fa fa-book fa-fw'></i>珍宝阁
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/sitemap.xml" rel="section"><i class='fa fa-sitemap fa-fw'></i>站点地图
+      </a>
+    </li>
+    
+
+    <li class="menu-item menu-item-search">
+      <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-pop-overlay">
+  <div class="popup search-popup">
+    <div class="search-header">
+      <span class="search-icon">
+        <i class="fa fa-search"></i>
+      </span>
+      <div class="search-input-container">
+        <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false"
+          type="search" class="search-input">
+      </div>
+      <span class="popup-btn-close">
+        <i class="fa fa-times-circle"></i>
+      </span>
+    </div>
+    <div class="search-result-container no-result">
+      <div class="search-result-icon">
+        <i class="fa fa-spinner fa-pulse fa-5x"></i>
+      </div>
+    </div>
+  </div>
+</div></div>
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+</div>
+
+<aside class="sidebar">
+  <div
+    class="sidebar-inner  sidebar-nav-active sidebar-toc-active">
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-toc">
+        文章目录
+      </li>
+      <li class="sidebar-nav-overview">
+        站点概览
+      </li>
+    </ul>
+
+    <div class="sidebar-panel-container">
+      
+      <section class="post-toc-wrap sidebar-panel">
+        
+        <div class="post-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#n-queens">N Queens</a>
+          <ul>
+            <li><a href="#-思路">💡 思路</a></li>
+            <li><a href="#-代码">📝 代码</a></li>
+          </ul>
+        </li>
+        <li><a href="#subset-sum">Subset Sum</a>
+          <ul>
+            <li><a href="#-思路-1">💡 思路</a></li>
+            <li><a href="#-代码-1">📝 代码</a></li>
+            <li><a href="#-问题拓展">❓ 问题拓展</a></li>
+          </ul>
+        </li>
+        <li><a href="#回溯算法一般模板">回溯算法一般模板</a></li>
+        <li><a href="#参考文献">参考文献</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+      </section>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+
+        <div class="site-author site-overview-item animated">
+          <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+          <p class="site-author-name" itemprop="name">Hotsnow</p>
+          <div class="site-description" itemprop="description"></div>
+        </div>
+
+        <div class="site-state-wrap site-overview-item animated">
+          <nav class="site-state">
+            <div class="site-state-item site-state-posts">
+              <a href="/posts/">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+            
+          </nav>
+        </div>
+
+        <div class="links-of-author site-overview-item animated">
+          <span class="links-of-author-item">
+            <a href="https://github.com/hotsnow-sean" title="GitHub → https://github.com/hotsnow-sean" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github fa-fw"></i>GitHub
+            </a>
+          </span>
+        </div>
+
+        <div class="cc-license site-overview-item animated" itemprop="license">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank"
+            rel="noopener">
+            <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+          </a>
+        </div>
+
+        
+        <div class="links-of-blogroll site-overview-item animated">
+          <div class="links-of-blogroll-title">
+            <i class="fa fa-globe fa-fw"></i>
+            欢迎访问
+          </div>
+          <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://space.bilibili.com/21290512" title="https://space.bilibili.com/21290512" target="_blank" rel="noopener noreferrer">Bilibili-炎军逸雪的个人空间</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://gitee.com/smallsean" title="https://gitee.com/smallsean" target="_blank" rel="noopener noreferrer">Gitee-码云</a>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </div>
+
+  </div>
+</aside>
+<div class="sidebar-dimmer"></div>
+
+    </header>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span>0%</span>
+    </div>
+    <div class="reading-progress-bar"></div>
+    <a href="https://github.com/hotsnow-sean" class="github-corner"
+      title="Follow me on GitHub" target="_blank" rel="noopener noreferrer">
+      <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <div class="main-inner page posts-expand">
+<div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content">
+    <link itemprop="mainEntityOfPage" href="http://hotsnow-sean.github.io/posts/backtracking-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+      <meta itemprop="name" content="Hotsnow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hotsnow&#39;s Island">
+    </span>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">回溯算法
+      </h1>
+
+      <div class="post-meta-container">
+        <div class="post-meta">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-calendar"></i>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2020-08-17 19:51:31" itemprop="dateCreated datePublished"
+      datetime="2020-08-17 19:51:31 &#43;0800 CST">2020-08-17</time>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-folder"></i>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+      <a href="http://hotsnow-sean.github.io/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+    </span>
+    
+  </span>
+</div>
+      </div>
+    </header>
+
+    <div class="post-body" itemprop="articleBody">
+      <div class="note info no-icon">
+&emsp;&emsp;A backtracking algorithm tries to construct a solution to a computational problem incrementally, one small piece at a time. Whenever the algorithm needs to decide between multiple alternatives to the next component of the solution, it recursively evaluates every alternative and then chooses the best one.<p style="text-align: right">——_Algorithms-JeffE_</p>
+
+</div>
+
+<h2 id="概述">概述</h2>
+<p>  实质上，回溯算法本身就属于一种递归算法。只不过相对于简单的递归来说，它的递归树一般分叉较多，更重要的是它的递归分支都是在决策中诞生的。之所以称之为回溯算法，就是因为我们一开始并不能确定哪一个决策是最优的，递归之后就需要回过头去试验其它决策即产生其它递归分支，最终采纳最适决策，返回其结果。</p>
+<p>  下面就书中的两个例子作总结，并归纳回溯算法的一般形式。</p>
+<h2 id="n-queens">N Queens</h2>
+<p>  N 皇后问题是一个超级经典的回溯问题，其中的 N 代表棋盘的大小，下面是八皇后问题的相关描述。</p>
+<blockquote>
+<p>在 8×8 格的国际象棋上摆放 8 个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。高斯认为有 76 种方案。1854 年在柏林的象棋杂志上不同的作者发表了 40 种不同的解，后来有人用图论的方法解出 92 种结果。如果经过 ±90 度、±180 度旋转，和对角线对称变换的摆法看成一类，共有 42 类。</p>
+</blockquote>
+<figure>
+    <img src="http://5b0988e595225.cdn.sohucs.com/images/20180904/6af12e75bc24426286639851875f0ab0.png" width="250"/> 
+</figure>
+
+<h3 id="-思路">💡 思路</h3>
+<p>  这个问题的本质就是确定所有皇后的位置，而为了递归将其分为小问题计算，进而表述为确定每一行（或每一列）的皇后的位置，因此最终结果可以用一个数组来表示，数组中存储每一行中皇后的位置索引。</p>
+<p>  问题转化为确定数组中每个元素的值，确定的方式非常暴力，直接把每一个位置都尝试一遍即可，作出当前行决策后将剩余部分进行递归计算，直到每个位置都确定或者位置冲突而舍弃当前决策。</p>
+<p>  由于子问题计算时依赖于已经做好的决策因此需要将位置数组在递归中进行传递。</p>
+<h3 id="-代码">📝 代码</h3>
+
+
+
+<div class="tabs" id="Queen">
+  <ul class="nav-tabs">
+    
+    <li class="tab active">
+      <a href="#Queen-0">伪代码</a>
+    </li>
+    
+    <li class="tab">
+      <a href="#Queen-1">C&#43;&#43; 实现</a>
+    </li>
+    
+  </ul>
+  <div class="tab-content">
+    
+<div class="tab-pane active" id="Queen-0">
+  <pre><code>PlaceQueens(Q[1.. n], r):
+    if r = n + 1
+        print Q[1.. n]
+    else
+        for j ← 1 to n
+            legal ← True
+            for i ← 1 to r − 1
+                if (Q[i] = j) or (Q[i] = j + r − i) or (Q[i] = j − r + i)
+                    legal ← False
+            if legal
+                Q[r] ← j
+                PlaceQueens(Q[1.. n], r + 1) &lt;&lt;Recursion!&gt;&gt;
+</code></pre>
+</div>
+<div class="tab-pane" id="Queen-1">
+  <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#902000">void</span> <span style="color:#06287e">placeQueens</span>(vector<span style="color:#666">&lt;</span><span style="color:#902000">int</span><span style="color:#666">&gt;&amp;</span> Q, <span style="color:#902000">int</span> r) {
+    <span style="color:#007020;font-weight:bold">if</span> (r <span style="color:#666">==</span> Q.size()) printQueens(Q);
+    <span style="color:#007020;font-weight:bold">else</span> {
+        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> <span style="color:#40a070">0</span>; j <span style="color:#666">&lt;</span> Q.size(); <span style="color:#666">++</span>j) {
+            <span style="color:#902000">bool</span> legal <span style="color:#666">=</span> <span style="color:#007020">true</span>;
+            <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> r; <span style="color:#666">++</span>i) {
+                <span style="color:#007020;font-weight:bold">if</span> (Q[i] <span style="color:#666">==</span> j <span style="color:#666">||</span> Q[i] <span style="color:#666">==</span> j <span style="color:#666">+</span> r <span style="color:#666">-</span> i <span style="color:#666">||</span> Q[i] <span style="color:#666">==</span> j <span style="color:#666">-</span> r <span style="color:#666">+</span> i) {
+                    legal <span style="color:#666">=</span> <span style="color:#007020">false</span>;
+                    <span style="color:#007020;font-weight:bold">break</span>;
+                }
+            }
+            <span style="color:#007020;font-weight:bold">if</span> (legal) {
+                Q[r] <span style="color:#666">=</span> j;
+                placeQueens(Q, r <span style="color:#666">+</span> <span style="color:#40a070">1</span>);
+            }
+        }
+    }
+}
+</code></pre></div>
+</div>
+
+  </div>
+</div>
+
+<p>  根据程序计算，八皇后问题有 92 种解法。</p>
+<h2 id="subset-sum">Subset Sum</h2>
+<p>  子集合之和问题：给定一个正整数集合 X 和一个目标整数 T，问 X 中是否存在一个数字之和等于目标 T 的子集合？</p>
+<h3 id="-思路-1">💡 思路</h3>
+<p>  这个问题如果用回溯解决，那么其需要作的决策就是原始集合中的某个数字是否要纳入结果子集合中。我们如何在递归中体现出所作的决策呢？方法如下：</p>
+<ul>
+<li>选取：将所选取的数字从集合中剔除，并将目标值减去所选数字</li>
+<li>不选取：将所选取的数字从集合中剔除，目标值不变</li>
+</ul>
+<p>  可以看出，无论选不选当前数字，都会将其剔除，因为无论怎样你都做出了决策，当前数字就不能再考虑了。递归出口为目标值小于等于 0 或者集合为空。</p>
+<h3 id="-代码-1">📝 代码</h3>
+
+
+
+<div class="tabs" id="SubsetSum">
+  <ul class="nav-tabs">
+    
+    <li class="tab active">
+      <a href="#SubsetSum-0">伪代码</a>
+    </li>
+    
+    <li class="tab">
+      <a href="#SubsetSum-1">C&#43;&#43; 实现</a>
+    </li>
+    
+  </ul>
+  <div class="tab-content">
+    
+<div class="tab-pane active" id="SubsetSum-0">
+  <pre><code>&lt;&lt;Does any subset of X sum to T ?&gt;&gt;
+SubsetSum(X, T):
+    if T = 0
+        return True
+    else if T &lt; 0 or X = ∅
+        return False
+    else
+        x ← any element of X
+        with ← SubsetSum(X \ {x}, T − x) &lt;&lt;Recurse!&gt;&gt;
+        wout ← SubsetSum
+</code></pre>
+</div>
+<div class="tab-pane" id="SubsetSum-1">
+  <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#902000">bool</span> <span style="color:#06287e">subsetSum</span>(<span style="color:#902000">int</span> nums[], <span style="color:#902000">int</span> n, <span style="color:#902000">int</span> T) {
+    <span style="color:#007020;font-weight:bold">if</span> (T <span style="color:#666">==</span> <span style="color:#40a070">0</span>) <span style="color:#007020;font-weight:bold">return</span> <span style="color:#007020">true</span>;
+    <span style="color:#007020;font-weight:bold">else</span> <span style="color:#007020;font-weight:bold">if</span> (T <span style="color:#666">&lt;</span> <span style="color:#40a070">0</span> <span style="color:#666">||</span> n <span style="color:#666">==</span> <span style="color:#40a070">0</span>) <span style="color:#007020;font-weight:bold">return</span> <span style="color:#007020">false</span>;
+    <span style="color:#007020;font-weight:bold">else</span> <span style="color:#007020;font-weight:bold">return</span> subsetSum(nums, n <span style="color:#666">-</span> <span style="color:#40a070">1</span>, T <span style="color:#666">-</span> nums[n <span style="color:#666">-</span> <span style="color:#40a070">1</span>]) <span style="color:#666">||</span> subsetSum(nums, n <span style="color:#666">-</span> <span style="color:#40a070">1</span>, T);
+}
+</code></pre></div>
+</div>
+
+  </div>
+</div>
+
+<h3 id="-问题拓展">❓ 问题拓展</h3>
+<p>这个问题还延伸出很多变种，比如：</p>
+<ul>
+<li>列出一个满足条件的子集合；</li>
+<li>求出可能解的个数；</li>
+<li>给数据加入权值，求满足条件的子集合的最大权值&hellip;（这个问题实际上就是严格版的 01 背包问题，可以用动态规划求解）</li>
+</ul>
+<p>其实所有问题都是一样的求解过程，只不过最后要的输出不同罢了，下面是针对上述第一个变种的伪码：</p>
+
+
+
+<div class="tabs" id="SubsetSum">
+  <ul class="nav-tabs">
+    
+    <li class="tab active">
+      <a href="#SubsetSum-0">伪代码</a>
+    </li>
+    
+    <li class="tab">
+      <a href="#SubsetSum-1">C&#43;&#43; 实现</a>
+    </li>
+    
+  </ul>
+  <div class="tab-content">
+    
+<div class="tab-pane active" id="SubsetSum-0">
+  <pre><code>ConstructSubset(X, i, T):
+    if T = 0
+        return ∅
+    if T &lt; 0 or n = 0
+        return None
+    Y ← ConstructSubset(X, i − 1, T)
+    if Y != None
+        return Y
+    Y ← ConstructSubset(X, i − 1, T − X[i])
+    if Y != None
+        return Y ∪ {X[i]}
+    return None
+</code></pre>
+</div>
+<div class="tab-pane" id="SubsetSum-1">
+  <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">pair<span style="color:#666">&lt;</span>vector<span style="color:#666">&lt;</span><span style="color:#902000">int</span><span style="color:#666">&gt;</span>,<span style="color:#902000">bool</span><span style="color:#666">&gt;</span> constructSubset(<span style="color:#902000">int</span> nums[], <span style="color:#902000">int</span> n, <span style="color:#902000">int</span> T) {
+    <span style="color:#007020;font-weight:bold">if</span> (T <span style="color:#666">==</span> <span style="color:#40a070">0</span>) <span style="color:#007020;font-weight:bold">return</span> { {},<span style="color:#007020">true</span> };
+    <span style="color:#007020;font-weight:bold">if</span> (T <span style="color:#666">&lt;</span> <span style="color:#40a070">0</span> <span style="color:#666">||</span> n <span style="color:#666">==</span> <span style="color:#40a070">0</span>) <span style="color:#007020;font-weight:bold">return</span> { {},<span style="color:#007020">false</span> };
+    <span style="color:#007020;font-weight:bold">auto</span> sub <span style="color:#666">=</span> constructSubset(nums, n <span style="color:#666">-</span> <span style="color:#40a070">1</span>, T);
+    <span style="color:#007020;font-weight:bold">if</span> (sub.second) <span style="color:#007020;font-weight:bold">return</span> sub;
+    sub <span style="color:#666">=</span> constructSubset(nums, n <span style="color:#666">-</span> <span style="color:#40a070">1</span>, T <span style="color:#666">-</span> nums[n <span style="color:#666">-</span> <span style="color:#40a070">1</span>]);
+    <span style="color:#007020;font-weight:bold">if</span> (sub.second) {
+        sub.first.push_back(nums[n <span style="color:#666">-</span> <span style="color:#40a070">1</span>]);
+        <span style="color:#007020;font-weight:bold">return</span> sub;
+    }
+    <span style="color:#007020;font-weight:bold">return</span> { {},<span style="color:#007020">false</span> };
+}
+</code></pre></div>
+</div>
+
+  </div>
+</div>
+
+<p>  这个代码用另一个集合去存储结果，决策过程都一样，只不过当某些决策最终满足条件时，我们在回溯过程中将决策具象化到结果数组中。</p>
+<h2 id="回溯算法一般模板">回溯算法一般模板</h2>
+<ol>
+<li>适用范围：求解过程是在作一系列形式相同的决策，并且之前的决策会影响之后决策的一类问题；
+<ul>
+<li>N Queens：决策每个皇后的位置，当前行决策受到之前行皇后位置的影响</li>
+<li>Subset Sum：决策每个数字选不选，之前的决策会改变集合以及目标</li>
+</ul>
+</li>
+<li>算法考虑要点：
+<ul>
+<li>递归终止条件：达成目标或者舍弃决策</li>
+<li>递归参数：体现之前决策或者其带来的影响；可以用于做出下一步决策&hellip;</li>
+<li>递归分支：分别进行分支决策，暴力考虑所有决策即可，分支较多时经常采用循环</li>
+<li>决策恢复：回溯进行分支决策时要消除掉前一分支决策带来的影响，使决策状态回到上一步决策再进行下一步分支决策</li>
+</ul>
+</li>
+</ol>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="http://jeffe.cs.illinois.edu/teaching/algorithms/"><em>Algorithms-JeffE</em></a></p>
+    </div>
+
+    
+<div class="popular-posts-header">相关文章</div>
+<ul class="popular-posts">
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-09/" rel="bookmark">背包九讲（九） 背包问题求具体方案</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-08/" rel="bookmark">背包九讲（八） 背包问题求方案数</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-07/" rel="bookmark">背包九讲（七） 有依赖背包</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-06/" rel="bookmark">背包九讲（六） 分组背包</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-05/" rel="bookmark">背包九讲（五） 二维费用背包</a></div>
+  </li>
+</ul>
+
+    <footer class="post-footer">
+      <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i>
+        感谢您的阅读-------------</div>
+      <div class="post-copyright">
+  <ul>
+    <li class="post-copyright-author">
+      <strong>本文作者： </strong>Hotsnow
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接： </strong>
+      <a href="http://hotsnow-sean.github.io/posts/backtracking-algorithm/" title="回溯算法">http://hotsnow-sean.github.io/posts/backtracking-algorithm/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</div>
+
+      <div class="post-tags">
+        
+        <a href="http://hotsnow-sean.github.io/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/backtracking/" rel="tag"><i class="fa fa-tag"></i> Backtracking</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/n-queens/" rel="tag"><i class="fa fa-tag"></i> N Queens</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/subsetsum/" rel="tag"><i class="fa fa-tag"></i> SubsetSum</a>
+        
+      </div>
+
+      
+      <div class="post-nav">
+        <div class="post-nav-item">
+          
+          <a rel="prev" href="http://hotsnow-sean.github.io/posts/knapsack-problem-09/" title="背包九讲（九） 背包问题求具体方案"><i class="fa fa-chevron-left"></i> 背包九讲（九） 背包问题求具体方案</a>
+          
+        </div>
+        <div class="post-nav-item">
+          
+        </div>
+      </div>
+      
+    </footer>
+  </article>
+</div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner"><div class="copyright">
+  &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hotsnow</span>
+</div>
+<div>本站基于 Hugo 框架 + Next 主题</div>
+</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/motion.js"></script>
+  <script src="/js/next-boot.js"></script>
+  <script src="/js/local-search.js"></script>
+  <script>
+  var pjax = new Pjax({
+    selectors: [
+      'head title',
+      '.page-configurations',
+      '.menu-item',
+      '.main-inner',
+      '.post-toc-wrap',
+      '.languages',
+      '.pjax'
+    ],
+    analytics: false,
+    cacheBust: false,
+    scrollRestoration: false,
+    scrollTo: true
+  });
+
+  document.addEventListener('pjax:success', () => {
+    
+    NexT.boot.refresh();
+    Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
+      $target.classList.add('animated');
+    })
+    
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+    const hasTOC = document.querySelector('.post-toc');
+    document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+    document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+    NexT.utils.updateSidebarPosition();
+  });
+</script>
+  <div class="pjax">
+    
+  </div>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+</body>
+
+</html>

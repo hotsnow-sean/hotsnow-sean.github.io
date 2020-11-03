@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
+<link rel="manifest" href="/images/site.webmanifest">
+
+<link rel="stylesheet" href="http://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css"><title>背包九讲（三） 多重背包 | Hotsnow&#39;s Island</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hotsnow&#39;s Island</h1>
+      <i class="logo-line"></i>
+    </a>
+    
+    <p class="site-subtitle" itemprop="description">仰观浮云，俯惹尘埃</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+    
+    <li class="menu-item">
+      <a href="/" rel="section"><i class='fa fa-home fa-fw'></i>首页
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/about/" rel="section"><i class='fa fa fa-user fa-fw'></i>关于
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/tags/" rel="section"><i class='fa fa-tags fa-fw'></i>标签<span class="badge">12</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/categories/" rel="section"><i class='fa fa-th fa-fw'></i>分类<span class="badge">3</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/posts/" rel="section"><i class='fa fa-archive fa-fw'></i>归档<span class="badge">14</span>
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/collection/" rel="section"><i class='fa fa-book fa-fw'></i>珍宝阁
+      </a>
+    </li>
+    
+    <li class="menu-item">
+      <a href="/sitemap.xml" rel="section"><i class='fa fa-sitemap fa-fw'></i>站点地图
+      </a>
+    </li>
+    
+
+    <li class="menu-item menu-item-search">
+      <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-pop-overlay">
+  <div class="popup search-popup">
+    <div class="search-header">
+      <span class="search-icon">
+        <i class="fa fa-search"></i>
+      </span>
+      <div class="search-input-container">
+        <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false"
+          type="search" class="search-input">
+      </div>
+      <span class="popup-btn-close">
+        <i class="fa fa-times-circle"></i>
+      </span>
+    </div>
+    <div class="search-result-container no-result">
+      <div class="search-result-icon">
+        <i class="fa fa-spinner fa-pulse fa-5x"></i>
+      </div>
+    </div>
+  </div>
+</div></div>
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+</div>
+
+<aside class="sidebar">
+  <div
+    class="sidebar-inner  sidebar-nav-active sidebar-toc-active">
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-toc">
+        文章目录
+      </li>
+      <li class="sidebar-nav-overview">
+        站点概览
+      </li>
+    </ul>
+
+    <div class="sidebar-panel-container">
+      
+      <section class="post-toc-wrap sidebar-panel">
+        
+        <div class="post-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-多重背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943">🎒 多重背包问题 (<a href="https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;seid=7823159650487960943">B 站大雪莱-背包九讲专题 <i class="fa fa-external-link-alt"></i></a>)</a>
+      <ul>
+        <li><a href="#-题目">❓ 题目</a></li>
+        <li><a href="#-一般解法">✅ 一般解法</a>
+          <ul>
+            <li><a href="#思路">思路</a></li>
+            <li><a href="#代码">代码</a></li>
+          </ul>
+        </li>
+        <li><a href="#-二进制优化解法">✅ 二进制优化解法</a>
+          <ul>
+            <li><a href="#思路-1">思路</a></li>
+            <li><a href="#代码-1">代码</a></li>
+          </ul>
+        </li>
+        <li><a href="#-单调队列优化解法">✅ 单调队列优化解法</a>
+          <ul>
+            <li><a href="#思路-2">思路</a></li>
+            <li><a href="#代码-2">代码</a></li>
+          </ul>
+        </li>
+        <li><a href="#-总结">🏆 总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+      </section>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+
+        <div class="site-author site-overview-item animated">
+          <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+          <p class="site-author-name" itemprop="name">Hotsnow</p>
+          <div class="site-description" itemprop="description"></div>
+        </div>
+
+        <div class="site-state-wrap site-overview-item animated">
+          <nav class="site-state">
+            <div class="site-state-item site-state-posts">
+              <a href="/posts/">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+            
+          </nav>
+        </div>
+
+        <div class="links-of-author site-overview-item animated">
+          <span class="links-of-author-item">
+            <a href="https://github.com/hotsnow-sean" title="GitHub → https://github.com/hotsnow-sean" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github fa-fw"></i>GitHub
+            </a>
+          </span>
+        </div>
+
+        <div class="cc-license site-overview-item animated" itemprop="license">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank"
+            rel="noopener">
+            <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+          </a>
+        </div>
+
+        
+        <div class="links-of-blogroll site-overview-item animated">
+          <div class="links-of-blogroll-title">
+            <i class="fa fa-globe fa-fw"></i>
+            欢迎访问
+          </div>
+          <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://space.bilibili.com/21290512" title="https://space.bilibili.com/21290512" target="_blank" rel="noopener noreferrer">Bilibili-炎军逸雪的个人空间</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://gitee.com/smallsean" title="https://gitee.com/smallsean" target="_blank" rel="noopener noreferrer">Gitee-码云</a>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </div>
+
+  </div>
+</aside>
+<div class="sidebar-dimmer"></div>
+
+    </header>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span>0%</span>
+    </div>
+    <div class="reading-progress-bar"></div>
+    <a href="https://github.com/hotsnow-sean" class="github-corner"
+      title="Follow me on GitHub" target="_blank" rel="noopener noreferrer">
+      <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <div class="main-inner page posts-expand">
+<div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content">
+    <link itemprop="mainEntityOfPage" href="http://hotsnow-sean.github.io/posts/knapsack-problem-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif">
+      <meta itemprop="name" content="Hotsnow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hotsnow&#39;s Island">
+    </span>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">背包九讲（三） 多重背包
+      </h1>
+
+      <div class="post-meta-container">
+        <div class="post-meta">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-calendar"></i>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2020-07-08 16:50:41" itemprop="dateCreated datePublished"
+      datetime="2020-07-08 16:50:41 &#43;0800 CST">2020-07-08</time>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-calendar-check"></i>
+    </span>
+    <span class="post-meta-item-text">更新于</span>
+    <time title="修改时间：2020-07-10 22:09:27" itemprop="dateModified"
+      datetime="2020-07-10 22:09:27 &#43;0800 CST">2020-07-10</time>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="far fa-folder"></i>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+      <a href="http://hotsnow-sean.github.io/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+    </span>
+    
+  </span>
+</div>
+      </div>
+    </header>
+
+    <div class="post-body" itemprop="articleBody">
+      <h1 id="-多重背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943">🎒 多重背包问题 (<a href="https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;seid=7823159650487960943">B 站大雪莱-背包九讲专题 <i class="fa fa-external-link-alt"></i></a>)</h1>
+<h2 id="-题目">❓ 题目</h2>
+<blockquote>
+<p>有 $N$ 种物品和一个容量为 $V$ 的背包。
+第 $i$ 种物品最多有 $s_i$ 件，每件体积是 $v_i$，价值是 $w_i$。
+求解哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。</p>
+</blockquote>
+<ul>
+<li><strong>输入格式</strong></li>
+</ul>
+<blockquote>
+<p>第一行两个整数，$N,V$，用空格隔开，分别表示物品种数和背包容积。
+接下来有 $N$ 行，每行三个整数 $v_i,w_i,s_i$，用空格隔开，分别表示第 $i$ 件物品的体积、价值和数量</p>
+</blockquote>
+<ul>
+<li><strong>输出格式</strong></li>
+</ul>
+<blockquote>
+<p>输出一个整数，表示最大价值</p>
+</blockquote>
+<ul>
+<li><strong>数据范围</strong></li>
+</ul>
+<blockquote>
+<p>$0 &lt; N,V \leq 100$
+$0 &lt; v_i,w_i,s_i \leq 100$</p>
+</blockquote>
+<h2 id="-一般解法">✅ 一般解法</h2>
+<h3 id="思路">思路</h3>
+<p>  根据<a href="/posts/cac8dc41/">上一讲</a>内容的一般解法，我们很容易想到，多重背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到当前物品的<font color=BlueViolet>数量上限（<em>类比完全背包的直到体积上限，这里多了一个数量的限制</em>）</font>为止。</p>
+<h3 id="代码">代码</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;cstring&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;algorithm&gt;</span><span style="color:#007020">
+</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">using</span> <span style="color:#007020;font-weight:bold">namespace</span> std;
+
+<span style="color:#902000">int</span> <span style="color:#06287e">main</span>() {
+    <span style="color:#902000">int</span> N, V;
+    cin <span style="color:#666">&gt;&gt;</span> N <span style="color:#666">&gt;&gt;</span> V;
+    <span style="color:#60a0b0;font-style:italic">// 定义数组并初始化
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">int</span> dp[V <span style="color:#666">+</span> <span style="color:#40a070">1</span>];
+    memset(dp, <span style="color:#40a070">0</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(dp));
+    <span style="color:#902000">int</span> v, w, s;
+    <span style="color:#60a0b0;font-style:italic">// 状态转移计算
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">1</span>; i <span style="color:#666">&lt;=</span> N; <span style="color:#666">++</span>i) {
+        cin <span style="color:#666">&gt;&gt;</span> v <span style="color:#666">&gt;&gt;</span> w <span style="color:#666">&gt;&gt;</span> s;
+        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> V; j <span style="color:#666">&gt;=</span> v; <span style="color:#666">--</span>j) {
+            <span style="color:#60a0b0;font-style:italic">// 从 1 个开始枚举直到数量上限或者拿不下
+</span><span style="color:#60a0b0;font-style:italic"></span>            <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> k <span style="color:#666">=</span> <span style="color:#40a070">1</span>; k <span style="color:#666">&lt;=</span> s <span style="color:#666">&amp;&amp;</span> k <span style="color:#666">*</span> v <span style="color:#666">&lt;=</span> j; <span style="color:#666">++</span>k)
+                dp[j] <span style="color:#666">=</span> max(dp[j <span style="color:#666">-</span> k <span style="color:#666">*</span> v] <span style="color:#666">+</span> k <span style="color:#666">*</span> w, dp[j]);
+        }
+    }
+    cout <span style="color:#666">&lt;&lt;</span> dp[V] <span style="color:#666">&lt;&lt;</span> endl;
+    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
+}
+</code></pre></div><ul>
+<li>空间复杂度：$O(V)$</li>
+<li>时间复杂度：$O(N\ast V\ast s)$ 在数据都在 100 范围内情况下，大概是一百万量级</li>
+</ul>
+<h2 id="-二进制优化解法">✅ 二进制优化解法</h2>
+<ul>
+<li>提升后的<strong>数据范围</strong></li>
+</ul>
+<blockquote>
+<p>$0 &lt; N \leq 1000$
+$0 &lt; V \leq 2000$
+$0 &lt; v_i,w_i,s_i \leq 2000$</p>
+</blockquote>
+<h3 id="思路-1">思路</h3>
+<p>  这里将数据范围增大，此时如果继续用一般解法，时间复杂度将上升到十亿量级以上，显然是不可取的。初步优化的思路是将多重背包问题化为 01 背包问题进而减少内层循环，首先可以想到的就是我们重新构造物品池，将每种物品都按一个一个拆开放进物品池里，此种物品有几个就放几个进去，这样的话，对放进去的每个物品而言，就又变成只有取和不取两种选择了，也即化为了 01 背包。
+  但是继续分析其复杂度发现，拆开之后代码的第一重循环量级变成了 $N*s$，也就是说，虽然少了一重循环但总的时间复杂度并没有下降。</p>
+<p>  那么现在的目标就是实现化为 01 背包的基础上，减少第一重循环的次数。也就是说，不能采用有几个就分成几份这样的笨办法了！当当当~~，二进制拆分横空出世
+  我们拆分一种物品的规则就是，当我们任意从拆分出来的物品中选取或不选取的时候，能够凑成所有小于等于此种物品总数量的数量。而二进制拆分也可以做到这一点，并且它拆分出来的份数更少，能够达到减小时间复杂度的目的。</p>
+<ul>
+<li>二进制拆分：
+<ul>
+<li>其实就是把一个数按照 <code>1,2,4,8,16......</code> 这样的只有一个<code>1</code>位的二进制数进行拆分。</li>
+<li>例如：19 可以拆成 1、2、4、8、4（最后一个 4 是为了使全取的时候不超过原值）</li>
+</ul>
+</li>
+</ul>
+<p>  使用这种拆法，每种物品会被拆为 $log(s)$ 份，总的时间复杂度也将降到 $10^7$ 量级。</p>
+<h3 id="代码-1">代码</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;cstring&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;algorithm&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;vector&gt;</span><span style="color:#007020">
+</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">using</span> <span style="color:#007020;font-weight:bold">namespace</span> std;
+
+<span style="color:#007020;font-weight:bold">struct</span> <span style="color:#0e84b5;font-weight:bold">Good</span> {
+    <span style="color:#902000">int</span> v, w;
+};
+
+<span style="color:#902000">int</span> <span style="color:#06287e">main</span>() {
+    <span style="color:#902000">int</span> N, V;
+    cin <span style="color:#666">&gt;&gt;</span> N <span style="color:#666">&gt;&gt;</span> V;
+    <span style="color:#60a0b0;font-style:italic">// 定义数组并初始化
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">int</span> dp[V <span style="color:#666">+</span> <span style="color:#40a070">1</span>];
+    memset(dp, <span style="color:#40a070">0</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(dp));
+    <span style="color:#60a0b0;font-style:italic">// 新的物品池
+</span><span style="color:#60a0b0;font-style:italic"></span>    vector<span style="color:#666">&lt;</span>Good<span style="color:#666">&gt;</span> goods;
+    <span style="color:#902000">int</span> v, w, s;
+    <span style="color:#60a0b0;font-style:italic">// 物品池重新构造
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">1</span>; i <span style="color:#666">&lt;=</span> N; <span style="color:#666">++</span>i) {
+        cin <span style="color:#666">&gt;&gt;</span> v <span style="color:#666">&gt;&gt;</span> w <span style="color:#666">&gt;&gt;</span> s;
+        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> <span style="color:#40a070">1</span>; j <span style="color:#666">&lt;=</span> s; j <span style="color:#666">&lt;&lt;=</span> <span style="color:#40a070">1</span>) {
+            s <span style="color:#666">-=</span> j;
+            goods.push_back({v <span style="color:#666">*</span> j, w <span style="color:#666">*</span> j});
+        }
+        <span style="color:#007020;font-weight:bold">if</span> (s <span style="color:#666">&gt;</span> <span style="color:#40a070">0</span>) goods.push_back({v <span style="color:#666">*</span> s, w <span style="color:#666">*</span> s});
+    }
+    <span style="color:#60a0b0;font-style:italic">// 化为01背包的状态转移
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">auto</span> <span style="color:#002070;font-weight:bold">good</span> : goods)
+        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> V; j <span style="color:#666">&gt;=</span> good.v; <span style="color:#666">--</span>j)
+            dp[j] <span style="color:#666">=</span> max(dp[j], dp[j <span style="color:#666">-</span> good.v] <span style="color:#666">+</span> good.w);
+
+    cout <span style="color:#666">&lt;&lt;</span> dp[V] <span style="color:#666">&lt;&lt;</span> endl;
+    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
+}
+</code></pre></div><ul>
+<li>空间复杂度：$O(V + N * \log(s))$</li>
+<li>时间复杂度：$O(N\ast V\ast \log(s))$ 按此时题目的数据范围，大概是千万量级</li>
+</ul>
+<h2 id="-单调队列优化解法">✅ 单调队列优化解法</h2>
+<ul>
+<li>提升后的<strong>数据范围</strong></li>
+</ul>
+<blockquote>
+<p>$0 &lt; N \leq 1000$
+$0 &lt; V \leq 20000$
+$0 &lt; v_i,w_i,s_i \leq 20000$</p>
+</blockquote>
+<h3 id="思路-2">思路</h3>
+<p>  数据范围再次增大后，如果用二进制优化解法，时间复杂度又将上升到$3 \times 10^8$，所以不得不继续寻求新的优化方法。
+<em>这部分较难，希望以后还能看懂 233</em></p>
+<p>  首先回到最初的起点，观察一下最一般解法的状态转移部分：</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">1</span>; i <span style="color:#666">&lt;=</span> N; <span style="color:#666">++</span>i) {
+    cin <span style="color:#666">&gt;&gt;</span> v <span style="color:#666">&gt;&gt;</span> w <span style="color:#666">&gt;&gt;</span> s;
+    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> V; j <span style="color:#666">&gt;=</span> v; <span style="color:#666">--</span>j)
+        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> k <span style="color:#666">=</span> <span style="color:#40a070">1</span>; k <span style="color:#666">&lt;=</span> s <span style="color:#666">&amp;&amp;</span> k <span style="color:#666">*</span> v <span style="color:#666">&lt;=</span> j; <span style="color:#666">++</span>k)
+            dp[j] <span style="color:#666">=</span> max(dp[j <span style="color:#666">-</span> k <span style="color:#666">*</span> v] <span style="color:#666">+</span> k <span style="color:#666">*</span> w, dp[j]);
+}
+</code></pre></div><p>  可以发现内部的两层循环做的事情就是，在来了一个新物品后，将整个 dp 数组进行更新。继续观察 dp 数组每个元素的更新过程：</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">dp[j] <span style="color:#666">=</span> max(dp[j <span style="color:#666">-</span> k <span style="color:#666">*</span> v] <span style="color:#666">+</span> k <span style="color:#666">*</span> w, dp[j]);
+</code></pre></div><p>  又可以发现一件事，对于 <code>dp[j]</code> 来说，它的状态只可能从 <code>dp[j - k * v]</code> 转移而来，而 <code>j</code> 与 <code>j - k * v</code> 的关系就是——与 <code>v</code> 同余，每一轮来了一个新物品去更新 dp 数组的时候，实际上整个数组可以被分为若干类，分组的依据就是索引与<code>v</code>同余，总共分为<code>v</code>组。同一组之间才会发生状态转移，不同组之间毫无影响。
+  紧接着分析同一组内部的转移，以余数为 1 举例，我们需要更新的有以下这些：</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#60a0b0;font-style:italic">// dp[1], dp[1 + v], dp[1 + 2 * v], ... dp[1 + k * v] 其中 1 + k * v 小于等于 V
+</span></code></pre></div><p>  观察转移方程，对于 <code>dp[1 + n * v]，n代表0到k的任一值</code> 的更新，将其代入转移方程得到(用 last 代表这个物品考虑之前的 dp 数组值)：</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">dp[<span style="color:#40a070">1</span> <span style="color:#666">+</span> n <span style="color:#666">*</span> v] <span style="color:#666">=</span> max(last[<span style="color:#40a070">1</span> <span style="color:#666">+</span> n <span style="color:#666">*</span> v <span style="color:#666">-</span> k <span style="color:#666">*</span> v] <span style="color:#666">+</span> k <span style="color:#666">*</span> w);
+<span style="color:#60a0b0;font-style:italic">// 式子中的 k 属于 [0, min(s, (1 + n * v) / v)] 即 [0, min(s,n)]
+</span><span style="color:#60a0b0;font-style:italic">// 将 n - k 记作 m，则 m 属于 [max(0,n-s), n]，进而式子化为：
+</span><span style="color:#60a0b0;font-style:italic"></span>dp[<span style="color:#40a070">1</span> <span style="color:#666">+</span> n <span style="color:#666">*</span> v] <span style="color:#666">=</span> max(last[<span style="color:#40a070">1</span> <span style="color:#666">+</span> m <span style="color:#666">*</span> v] <span style="color:#666">+</span> (n <span style="color:#666">-</span> m) <span style="color:#666">*</span> w);
+<span style="color:#60a0b0;font-style:italic">// 我们将余数化为一般，整个 1 + n * v 用 j 来表示，式子化为：
+</span><span style="color:#60a0b0;font-style:italic"></span>dp[j] <span style="color:#666">=</span> max(last[i] <span style="color:#666">+</span> (j <span style="color:#666">-</span> i) <span style="color:#666">/</span> v <span style="color:#666">*</span> w);
+<span style="color:#60a0b0;font-style:italic">// 其中的 i 就是与 j 同组且小于等于 j 的索引序列，序列为等差，公差为 v
+</span><span style="color:#60a0b0;font-style:italic">// 到这里其实就已经化为经典的单调队列问题了：找出一组数里固定长度范围内的最大值，这里的范围就是 s
+</span></code></pre></div><p>  单调队列的具体做法不在这里展开，直接上优化后的代码：</p>
+<h3 id="代码-2">代码</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;cstring&gt;</span><span style="color:#007020">
+</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;algorithm&gt;</span><span style="color:#007020">
+</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">using</span> <span style="color:#007020;font-weight:bold">namespace</span> std;
+
+<span style="color:#902000">int</span> <span style="color:#06287e">main</span>() {
+    <span style="color:#902000">int</span> N, V;
+    cin <span style="color:#666">&gt;&gt;</span> N <span style="color:#666">&gt;&gt;</span> V;
+    <span style="color:#902000">int</span> dp[V <span style="color:#666">+</span> <span style="color:#40a070">1</span>], last[V <span style="color:#666">+</span> <span style="color:#40a070">1</span>], q[V <span style="color:#666">+</span> <span style="color:#40a070">1</span>];
+    memset(dp, <span style="color:#40a070">0</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(dp));
+    <span style="color:#902000">int</span> v, w, s;
+    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> N; <span style="color:#666">++</span>i) {
+        cin <span style="color:#666">&gt;&gt;</span> v <span style="color:#666">&gt;&gt;</span> w <span style="color:#666">&gt;&gt;</span> s;
+        memcpy(last, dp, <span style="color:#007020;font-weight:bold">sizeof</span>(dp));
+        <span style="color:#60a0b0;font-style:italic">// 枚举余数，也就是分组遍历
+</span><span style="color:#60a0b0;font-style:italic"></span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> <span style="color:#40a070">0</span>; j <span style="color:#666">&lt;</span> v; <span style="color:#666">++</span>j) {
+            <span style="color:#902000">int</span> head <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>, tail <span style="color:#666">=</span> <span style="color:#40a070">0</span>;
+            <span style="color:#60a0b0;font-style:italic">// 真正的单调队列代码
+</span><span style="color:#60a0b0;font-style:italic"></span>            <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> k <span style="color:#666">=</span> j; k <span style="color:#666">&lt;=</span> V; k <span style="color:#666">+=</span> v) {
+                dp[k] <span style="color:#666">=</span> last[k];
+                <span style="color:#007020;font-weight:bold">if</span> (head <span style="color:#666">&gt;=</span> tail <span style="color:#666">&amp;&amp;</span> k <span style="color:#666">-</span> q[tail] <span style="color:#666">&gt;</span> s <span style="color:#666">*</span> v) <span style="color:#666">++</span>tail;
+                <span style="color:#007020;font-weight:bold">if</span> (head <span style="color:#666">&gt;=</span> tail) dp[k] <span style="color:#666">=</span> max(last[q[tail]] <span style="color:#666">+</span> (k <span style="color:#666">-</span> q[tail]) <span style="color:#666">/</span> v <span style="color:#666">*</span> w, dp[k]);
+                <span style="color:#007020;font-weight:bold">while</span>(head <span style="color:#666">&gt;=</span> tail <span style="color:#666">&amp;&amp;</span> last[q[head]] <span style="color:#666">-</span> (q[head] <span style="color:#666">-</span> j) <span style="color:#666">/</span> v <span style="color:#666">*</span> w <span style="color:#666">&lt;=</span> last[k] <span style="color:#666">-</span> (k <span style="color:#666">-</span> j) <span style="color:#666">/</span> v <span style="color:#666">*</span> w) <span style="color:#666">--</span>head;
+                q[<span style="color:#666">++</span>head] <span style="color:#666">=</span> k;
+            }
+        }
+    }
+    cout <span style="color:#666">&lt;&lt;</span> dp[V] <span style="color:#666">&lt;&lt;</span> endl;
+    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
+}
+</code></pre></div><p>  虽然可能多用了两个数组辅助空间，但这种方法在如此高的数据范围下时间复杂度也仅仅是 $10^6$ 级别，真不愧是究极的背包解法，理解上的难度也是杠杠的！</p>
+<h2 id="-总结">🏆 总结</h2>
+<p><code>多重背包问题</code>的解法对应于不同的数据范围有不同的思考方式，其中二进制优化方式应对不是非常大的数据范围已经足够了。而单调队列优化着实很难一下想通啊。。。</p>
+    </div>
+
+    
+<div class="popular-posts-header">相关文章</div>
+<ul class="popular-posts">
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-02/" rel="bookmark">背包九讲（二） 完全背包</a></div>
+  </li>
+  <li class="popular-posts-item">
+    <div class="popular-posts-title"><a href="/posts/knapsack-problem-01/" rel="bookmark">背包九讲（一） 01背包</a></div>
+  </li>
+</ul>
+
+    <footer class="post-footer">
+      <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i>
+        感谢您的阅读-------------</div>
+      <div class="post-copyright">
+  <ul>
+    <li class="post-copyright-author">
+      <strong>本文作者： </strong>Hotsnow
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接： </strong>
+      <a href="http://hotsnow-sean.github.io/posts/knapsack-problem-03/" title="背包九讲（三） 多重背包">http://hotsnow-sean.github.io/posts/knapsack-problem-03/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</div>
+
+      <div class="post-tags">
+        
+        <a href="http://hotsnow-sean.github.io/tags/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" rel="tag"><i class="fa fa-tag"></i> 背包九讲</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+        
+        <a href="http://hotsnow-sean.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+        
+      </div>
+
+      
+      <div class="post-nav">
+        <div class="post-nav-item">
+          
+          <a rel="prev" href="http://hotsnow-sean.github.io/posts/knapsack-problem-02/" title="背包九讲（二） 完全背包"><i class="fa fa-chevron-left"></i> 背包九讲（二） 完全背包</a>
+          
+        </div>
+        <div class="post-nav-item">
+          
+          <a rel="next" href="http://hotsnow-sean.github.io/posts/hexo-next-theme-issue/" title="Hexo-Next主题 可能遇到的问题解决方案（持续更新）">Hexo-Next主题 可能遇到的问题解决方案（持续更新） <i class="fa fa-chevron-right"></i></a>
+          
+        </div>
+      </div>
+      
+    </footer>
+  </article>
+</div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner"><div class="copyright">
+  &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hotsnow</span>
+</div>
+<div>本站基于 Hugo 框架 + Next 主题</div>
+</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/motion.js"></script>
+  <script src="/js/next-boot.js"></script>
+  <script src="/js/local-search.js"></script>
+  <script>
+  var pjax = new Pjax({
+    selectors: [
+      'head title',
+      '.page-configurations',
+      '.menu-item',
+      '.main-inner',
+      '.post-toc-wrap',
+      '.languages',
+      '.pjax'
+    ],
+    analytics: false,
+    cacheBust: false,
+    scrollRestoration: false,
+    scrollTo: true
+  });
+
+  document.addEventListener('pjax:success', () => {
+    
+    NexT.boot.refresh();
+    Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
+      $target.classList.add('animated');
+    })
+    
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+    const hasTOC = document.querySelector('.post-toc');
+    document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+    document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+    NexT.utils.updateSidebarPosition();
+  });
+</script>
+  <div class="pjax">
+    
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: { '[+]': [['$', '$']] },
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = { node: text, delim: '', n: 0 };
+              math.end = { node: text, delim: '', n: 0 };
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+  </div>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+</body>
+
+</html>

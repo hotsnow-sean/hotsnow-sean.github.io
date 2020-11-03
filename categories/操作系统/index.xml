@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>操作系统 on Hotsnow&#39;s Island</title>
+    <link>http://hotsnow-sean.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 操作系统 on Hotsnow&#39;s Island</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 11 Jul 2020 20:21:56 +0800</lastBuildDate><atom:link href="http://hotsnow-sean.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux双系统问题杂谈（持续更新）</title>
+      <link>http://hotsnow-sean.github.io/posts/linux-win-issue/</link>
+      <pubDate>Sat, 11 Jul 2020 20:21:56 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/linux-win-issue/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200707211141.png&#34; alt=&#34;&#34;&gt;
+玩 ArchLinux 双系统时遇到的一些小问题，记录一下&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Arch安装向导</title>
+      <link>http://hotsnow-sean.github.io/posts/arch-install-guide/</link>
+      <pubDate>Mon, 06 Jul 2020 07:32:52 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/arch-install-guide/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200707211141.png&#34; alt=&#34;&#34;&gt;
+2020-08-19 更新添加问题解决章节&lt;br&gt;
+2020-07-30 更新最新联网方式以及修正部分内容&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;之前玩 Linux 时记录的文档，托管到博客上做记录&lt;br&gt;
+基本根据&lt;a href=&#34;https://wiki.archlinux.org/index.php/Installation_guide&#34; title=&#34;官方安装向导&#34;&gt;ArchLinux 官方向导 &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;而来，综合了一些会遇到的问题&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

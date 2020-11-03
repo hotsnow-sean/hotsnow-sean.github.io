@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>next-theme on Hotsnow&#39;s Island</title>
+    <link>http://hotsnow-sean.github.io/tags/next-theme/</link>
+    <description>Recent content in next-theme on Hotsnow&#39;s Island</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 10 Jul 2020 09:25:22 +0800</lastBuildDate><atom:link href="http://hotsnow-sean.github.io/tags/next-theme/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hexo-Next主题 可能遇到的问题解决方案（持续更新）</title>
+      <link>http://hotsnow-sean.github.io/posts/hexo-next-theme-issue/</link>
+      <pubDate>Fri, 10 Jul 2020 09:25:22 +0800</pubDate>
+      
+      <guid>http://hotsnow-sean.github.io/posts/hexo-next-theme-issue/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/20200710100226.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

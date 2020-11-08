@@ -11,7 +11,9 @@
 
 <link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css"><title>背包九讲（三） 多重背包 | Hotsnow&#39;s Island</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+<script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-atom.min.css" rel="stylesheet"><title>背包九讲（三） 多重背包 | Hotsnow&#39;s Island</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -342,7 +344,7 @@ $0 &lt; v_i,w_i,s_i \leq 100$</p>
 </blockquote>
 <h2 id="-一般解法">✅ 一般解法</h2>
 <h3 id="思路">思路</h3>
-<p>  根据<a href="/posts/cac8dc41/">上一讲</a>内容的一般解法，我们很容易想到，多重背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到当前物品的<font color=BlueViolet>数量上限（<em>类比完全背包的直到体积上限，这里多了一个数量的限制</em>）</font>为止。</p>
+<p>  根据<a href="/posts/knapsack-problem-02/" title="背包九讲（二） 完全背包">上一讲</a>内容的一般解法，我们很容易想到，多重背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到当前物品的<font color=BlueViolet>数量上限（<em>类比完全背包的直到体积上限，这里多了一个数量的限制</em>）</font>为止。</p>
 <h3 id="代码">代码</h3>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
 </span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;cstring&gt;</span><span style="color:#007020">

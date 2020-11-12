@@ -2,7 +2,7 @@
 <html lang=zh-CN>
 
 <head>
-	<meta name="generator" content="Hugo 0.76.5" /><meta charset="UTF-8">
+	<meta name="generator" content="Hugo 0.78.1" /><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -953,6 +953,7 @@
 </script>
   <div class="pjax">
     
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
@@ -994,6 +995,7 @@
     MathJax.texReset();
     MathJax.typeset();
   }
+  mermaid.init({ startOnLoad: true }, ".mermaid");
 </script>
   </div>
   <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>

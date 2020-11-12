@@ -477,6 +477,7 @@
 </script>
   <div class="pjax">
     
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
@@ -518,6 +519,7 @@
     MathJax.texReset();
     MathJax.typeset();
   }
+  mermaid.init({ startOnLoad: true }, ".mermaid");
 </script>
   </div>
   <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>

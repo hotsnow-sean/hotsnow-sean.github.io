@@ -325,12 +325,11 @@
 <li><strong>数据范围</strong></li>
 </ul>
 <blockquote>
-<p>$0 &lt; N,V \leq 1000$
-$0 &lt; v_i,w_i \leq 1000$</p>
+<p>$0 &lt; N,V \leq 1000$ &gt; $0 &lt; v_i,w_i \leq 1000$</p>
 </blockquote>
 <h2 id="-初步解法">✅ 初步解法</h2>
 <h3 id="思路">思路</h3>
-<p>  从<a href="/posts/knapsack-problem-01/" title="背包九讲（一） 01背包">上一讲</a>内容的结论出发得到下面这个转移方程</p>
+<p>  从<a href="/posts/knapsack-problem-01/" title="背包九讲（一） 01 背包">上一讲</a>内容的结论出发得到下面这个转移方程</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">dp[j] <span style="color:#666">=</span> max(dp[j <span style="color:#666">-</span> v] <span style="color:#666">+</span> w, dp[j])
 </code></pre></div><p>这个方程实际上代表了我们每次考虑一个新的物品时，只要去决定拿与不拿即可，也就是 01 背包问题名字里面的‘01’的含义。那么我们很容易想到，完全背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到拿不下为止。</p>
 <h3 id="代码">代码</h3>
@@ -512,6 +511,7 @@ $0 &lt; v_i,w_i \leq 1000$</p>
 </script>
   <div class="pjax">
     
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
@@ -553,6 +553,7 @@ $0 &lt; v_i,w_i \leq 1000$</p>
     MathJax.texReset();
     MathJax.typeset();
   }
+  mermaid.init({ startOnLoad: true }, ".mermaid");
 </script>
   </div>
   <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>

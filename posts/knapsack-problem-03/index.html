@@ -339,8 +339,7 @@
 <li><strong>数据范围</strong></li>
 </ul>
 <blockquote>
-<p>$0 &lt; N,V \leq 100$
-$0 &lt; v_i,w_i,s_i \leq 100$</p>
+<p>$0 &lt; N,V \leq 100$ &gt; $0 &lt; v_i,w_i,s_i \leq 100$</p>
 </blockquote>
 <h2 id="-一般解法">✅ 一般解法</h2>
 <h3 id="思路">思路</h3>
@@ -379,14 +378,12 @@ $0 &lt; v_i,w_i,s_i \leq 100$</p>
 <li>提升后的<strong>数据范围</strong></li>
 </ul>
 <blockquote>
-<p>$0 &lt; N \leq 1000$
-$0 &lt; V \leq 2000$
-$0 &lt; v_i,w_i,s_i \leq 2000$</p>
+<p>$0 &lt; N \leq 1000$ &gt; $0 &lt; V \leq 2000$ &gt; $0 &lt; v_i,w_i,s_i \leq 2000$</p>
 </blockquote>
 <h3 id="思路-1">思路</h3>
-<p>  这里将数据范围增大，此时如果继续用一般解法，时间复杂度将上升到十亿量级以上，显然是不可取的。初步优化的思路是将多重背包问题化为 01 背包问题进而减少内层循环，首先可以想到的就是我们重新构造物品池，将每种物品都按一个一个拆开放进物品池里，此种物品有几个就放几个进去，这样的话，对放进去的每个物品而言，就又变成只有取和不取两种选择了，也即化为了 01 背包。
+<p>  这里将数据范围增大，此时如果继续用一般解法，时间复杂度将上升到十亿量级以上，显然是不可取的。初步优化的思路是将多重背包问题化为 01 背包问题进而减少内层循环，首先可以想到的就是我们重新构造物品池，将每种物品都按一个一个拆开放进物品池里，此种物品有几个就放几个进去，这样的话，对放进去的每个物品而言，就又变成只有取和不取两种选择了，也即化为了 01 背包。<br>
   但是继续分析其复杂度发现，拆开之后代码的第一重循环量级变成了 $N*s$，也就是说，虽然少了一重循环但总的时间复杂度并没有下降。</p>
-<p>  那么现在的目标就是实现化为 01 背包的基础上，减少第一重循环的次数。也就是说，不能采用有几个就分成几份这样的笨办法了！当当当~~，二进制拆分横空出世
+<p>  那么现在的目标就是实现化为 01 背包的基础上，减少第一重循环的次数。也就是说，不能采用有几个就分成几份这样的笨办法了！当当当~~，二进制拆分横空出世<br>
   我们拆分一种物品的规则就是，当我们任意从拆分出来的物品中选取或不选取的时候，能够凑成所有小于等于此种物品总数量的数量。而二进制拆分也可以做到这一点，并且它拆分出来的份数更少，能够达到减小时间复杂度的目的。</p>
 <ul>
 <li>二进制拆分：
@@ -443,9 +440,7 @@ $0 &lt; v_i,w_i,s_i \leq 2000$</p>
 <li>提升后的<strong>数据范围</strong></li>
 </ul>
 <blockquote>
-<p>$0 &lt; N \leq 1000$
-$0 &lt; V \leq 20000$
-$0 &lt; v_i,w_i,s_i \leq 20000$</p>
+<p>$0 &lt; N \leq 1000$ &gt; $0 &lt; V \leq 20000$ &gt; $0 &lt; v_i,w_i,s_i \leq 20000$</p>
 </blockquote>
 <h3 id="思路-2">思路</h3>
 <p>  数据范围再次增大后，如果用二进制优化解法，时间复杂度又将上升到$3 \times 10^8$，所以不得不继续寻求新的优化方法。
@@ -459,7 +454,7 @@ $0 &lt; v_i,w_i,s_i \leq 20000$</p>
 }
 </code></pre></div><p>  可以发现内部的两层循环做的事情就是，在来了一个新物品后，将整个 dp 数组进行更新。继续观察 dp 数组每个元素的更新过程：</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">dp[j] <span style="color:#666">=</span> max(dp[j <span style="color:#666">-</span> k <span style="color:#666">*</span> v] <span style="color:#666">+</span> k <span style="color:#666">*</span> w, dp[j]);
-</code></pre></div><p>  又可以发现一件事，对于 <code>dp[j]</code> 来说，它的状态只可能从 <code>dp[j - k * v]</code> 转移而来，而 <code>j</code> 与 <code>j - k * v</code> 的关系就是——与 <code>v</code> 同余，每一轮来了一个新物品去更新 dp 数组的时候，实际上整个数组可以被分为若干类，分组的依据就是索引与<code>v</code>同余，总共分为<code>v</code>组。同一组之间才会发生状态转移，不同组之间毫无影响。
+</code></pre></div><p>  又可以发现一件事，对于 <code>dp[j]</code> 来说，它的状态只可能从 <code>dp[j - k * v]</code> 转移而来，而 <code>j</code> 与 <code>j - k * v</code> 的关系就是——与 <code>v</code> 同余，每一轮来了一个新物品去更新 dp 数组的时候，实际上整个数组可以被分为若干类，分组的依据就是索引与<code>v</code>同余，总共分为<code>v</code>组。同一组之间才会发生状态转移，不同组之间毫无影响。<br>
   紧接着分析同一组内部的转移，以余数为 1 举例，我们需要更新的有以下这些：</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#60a0b0;font-style:italic">// dp[1], dp[1 + v], dp[1 + 2 * v], ... dp[1 + k * v] 其中 1 + k * v 小于等于 V
 </span></code></pre></div><p>  观察转移方程，对于 <code>dp[1 + n * v]，n代表0到k的任一值</code> 的更新，将其代入转移方程得到(用 last 代表这个物品考虑之前的 dp 数组值)：</p>
@@ -626,6 +621,7 @@ $0 &lt; v_i,w_i,s_i \leq 20000$</p>
 </script>
   <div class="pjax">
     
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
@@ -667,6 +663,7 @@ $0 &lt; v_i,w_i,s_i \leq 20000$</p>
     MathJax.texReset();
     MathJax.typeset();
   }
+  mermaid.init({ startOnLoad: true }, ".mermaid");
 </script>
   </div>
   <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>

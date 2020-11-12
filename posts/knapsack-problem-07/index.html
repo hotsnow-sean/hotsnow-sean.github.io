@@ -301,10 +301,14 @@
 物品之间具有依赖关系，且依赖关系组成一棵树的形状。如果选择一个物品，则必须选择它的父节点。
 如下图所示：</p>
 </blockquote>
-<pre><code class="language-mermaid" data-lang="mermaid">graph TB
-  1((1)) --- 2((2)) &amp; 3((3))
-  2 --- 4((4)) &amp; 5((5))
-</code></pre><blockquote>
+<div class="mermaid" align="center">
+  
+graph TB
+1((1)) --- 2((2)) & 3((3))
+2 --- 4((4)) & 5((5))
+
+</div>
+<blockquote>
 <p>如果选择物品 5，则必须选择物品 1 和 2。这是因为 2 是 5 的父节点，1 是 2 的父节点。
 每件物品的编号是 $i$，体积是 $v_i$，价值是 $w_i$，依赖的父节点编号是 $p_i$。物品的下标范围是 $1…N$。
 求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。
@@ -336,9 +340,9 @@
 </blockquote>
 <h2 id="-解决方案">✅ 解决方案</h2>
 <h3 id="思路">思路</h3>
-<p>  有依赖的背包问题中所有物品均以树上一个节点的形式存在，所以首先将树给建起来。这里采用邻接表的形式，方便遍历每个节点的子节点，而且以数组形式存储维护起来很轻松。
+<p>  有依赖的背包问题中所有物品均以树上一个节点的形式存在，所以首先将树给建起来。这里采用邻接表的形式，方便遍历每个节点的子节点，而且以数组形式存储维护起来很轻松。<br>
   建立数组 $n$，$e$。 其中 $n$ 用来存储每个节点自身的信息以及其第一个子节点在 $e$ 中的 $id$，长度为节点个数；$e$ 数组每个元素存储这条边所对应子节点在 $n$ 中的 $id$，以及下一个子节点在 $e$ 中的 $id$，长度为节点个数减一。通过这种方式只需要两个数组就可以将树信息表示出来。</p>
-<p>  接下来考虑如何进行动态规划。我们可以从树的根节点开始考虑，因为如果拿其它节点的物品，由于父子节点的约束关系，根节点必须被拿才能满足要求。而对于一个根节点，除非它本身的体积已经大于容积上限，否则我们必然从它的所有子树中求出一个最大价值，然后加上自己的价值就得到了最终答案。
+<p>  接下来考虑如何进行动态规划。我们可以从树的根节点开始考虑，因为如果拿其它节点的物品，由于父子节点的约束关系，根节点必须被拿才能满足要求。而对于一个根节点，除非它本身的体积已经大于容积上限，否则我们必然从它的所有子树中求出一个最大价值，然后加上自己的价值就得到了最终答案。<br>
   因此，对于每个节点的求解，又会转化到求其子节点的解，这明显就是递归的思路。最终代码如下。</p>
 <h3 id="代码">代码</h3>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
@@ -524,6 +528,7 @@
 </script>
   <div class="pjax">
     
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
@@ -565,6 +570,7 @@
     MathJax.texReset();
     MathJax.typeset();
   }
+  mermaid.init({ startOnLoad: true }, ".mermaid");
 </script>
   </div>
   <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>

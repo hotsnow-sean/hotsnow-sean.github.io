@@ -370,13 +370,13 @@
 </span></code></pre></div><p>  既然只有长文会出现这个问题，再联系 <code>animate动画库</code> <a href="https://animate.style/">官方</a>的说明有这样一句话：<code>Don't animate large elements</code>，可以大胆猜测是由于元素过高或者元素高度加载不及时导致的动画执行不完全问题。
 💡 解决方案一：改变或者去掉上面配置中 <code>post_body</code> 的动画，直接留空即可
 <a name="eg1">💡 解决方案二</a>：通过媒体查询，将手机端竖屏状态下的动画留空或改动。这种办法可以使得一般情况下动画效果依旧不变，只针对有问题的情况做出调整。如下：</p>
-<pre><code class="language-styl" data-lang="styl">// 写到 'source/_data/styles.styl' 中即可
-@media only screen and (orientation: portrait) {
-  .post-body {
-    animation: fadeIn !important;
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-styl" data-lang="styl"><span style="color:#666">//</span> <span style="">写到</span> <span style="">&#39;</span><span style="color:#062873;font-weight:bold">source</span><span style="color:#666">/</span><span style="">_data</span><span style="color:#666">/</span><span style="">styles</span>.<span style="color:#0e84b5;font-weight:bold">styl</span><span style="">&#39;</span> <span style="">中即可</span>
+<span style="color:#007020">@media</span> <span style="">only</span> <span style="">screen</span> <span style="color:#007020;font-weight:bold">and</span> (<span style="">orientation</span>: <span style="color:#007020;font-weight:bold">portrait</span>) {
+  .<span style="color:#0e84b5;font-weight:bold">post-body</span> {
+    animation: <span style="">fadeIn</span> <span style="color:#bb60d5">!important</span>;
   }
 }
-</code></pre><p>  之所以匹配竖屏是因为在测试中手机横屏不会出现这个问题，这里的查询条件可根据需要调整，要改变成的动画也随意调整到没问题即可，实在不行就置为 <code>none</code> 关闭动画。</p>
+</code></pre></div><p>  之所以匹配竖屏是因为在测试中手机横屏不会出现这个问题，这里的查询条件可根据需要调整，要改变成的动画也随意调整到没问题即可，实在不行就置为 <code>none</code> 关闭动画。</p>
 <h2 id="eg2-end-flag">在文章末尾添加结束标识 🔚</h2>
 <p>  网上有很多解答，但都大同小异而且太旧，用的方法里还都是 <code>.swig</code> 文件，而 Next 早就不用这种格式了。。这里可以采用之前提到的 <code>custom_file_path</code> 的方式进行添加，例如：</p>
 <pre><code class="language-njk" data-lang="njk">{### 写到 'source/_data/post-body-end.njk' 中，并且取消相应主题配置中的注释 ###}

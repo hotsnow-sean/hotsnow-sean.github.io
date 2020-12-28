@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>奇思妙想 on Hotsnow&#39;s Island</title>
+    <link>https://hotsnow-sean.github.io/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/</link>
+    <description>Recent content in 奇思妙想 on Hotsnow&#39;s Island</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 28 Dec 2020 09:20:59 +0800</lastBuildDate><atom:link href="https://hotsnow-sean.github.io/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>二叉树控制台可视化</title>
+      <link>https://hotsnow-sean.github.io/posts/binarytree-condole-visualization/</link>
+      <pubDate>Mon, 28 Dec 2020 09:20:59 +0800</pubDate>
+      
+      <guid>https://hotsnow-sean.github.io/posts/binarytree-condole-visualization/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host@latest/img/20201228112552.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;  小伙伴们在学习二叉树这种数据结构的时候，如果自己编写了完整的二叉树实现代码，肯定想要测试一番，那么大家都是如何测试的呢？可能会想到，利用二叉树的遍历将其输出，当然也不失为一种好的方法，但是如果数据量大的话，测试的过程中你想要判断这棵树是否正确还是要费一点时间的，毕竟遍历输出不像我们手画一棵二叉树那样清晰。那么：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;note default&#34;&gt;
+有没有办法在黑黑的控制台中打印出真正的二叉树呢？
+
+&lt;/div&gt;
+
+  当然是么得问题啦，下面是我的思路与部分代码，以及最终呈现的效果。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -328,37 +328,37 @@
 <p>  而题目要求输出字典序最小的方案，因此倒推时需要从第一件物品开始，所以状态转移时从最后一件物品开始倒着转移即可。</p>
 <p>  倒推的过程其实就是判断最终答案与当前物品的体积价值以及相应中间状态之间的关系。</p>
 <h3 id="代码">代码</h3>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
-</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;algorithm&gt;</span><span style="color:#007020">
-</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;cstring&gt;</span><span style="color:#007020">
-</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">using</span> <span style="color:#007020;font-weight:bold">namespace</span> std;
-
-<span style="color:#902000">int</span> <span style="color:#06287e">main</span>() {
-    <span style="color:#902000">int</span> N, V;
-    cin <span style="color:#666">&gt;&gt;</span> N <span style="color:#666">&gt;&gt;</span> V;
-    <span style="color:#60a0b0;font-style:italic">// 由于倒推需要用到中间状态，因此这里用二维数组保存所有状态
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">int</span> dp[N <span style="color:#666">+</span> <span style="color:#40a070">1</span>][V <span style="color:#666">+</span> <span style="color:#40a070">1</span>], v[N <span style="color:#666">+</span> <span style="color:#40a070">1</span>], w[N <span style="color:#666">+</span> <span style="color:#40a070">1</span>];
-    memset(dp, <span style="color:#40a070">0</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(dp));
-    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> N; i <span style="color:#666">&gt;</span> <span style="color:#40a070">0</span>; <span style="color:#666">--</span>i) cin <span style="color:#666">&gt;&gt;</span> v[i] <span style="color:#666">&gt;&gt;</span> w[i];
-    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">1</span>; i <span style="color:#666">&lt;=</span> N; <span style="color:#666">++</span>i) {
-        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> <span style="color:#40a070">1</span>; j <span style="color:#666">&lt;=</span> V; <span style="color:#666">++</span>j) {
-            dp[i][j] <span style="color:#666">=</span> dp[i <span style="color:#666">-</span> <span style="color:#40a070">1</span>][j];
-            <span style="color:#007020;font-weight:bold">if</span> (j <span style="color:#666">&gt;=</span> v[i]) dp[i][j] <span style="color:#666">=</span> max(dp[i][j], dp[i <span style="color:#666">-</span> <span style="color:#40a070">1</span>][j <span style="color:#666">-</span> v[i]] <span style="color:#666">+</span> w[i]);
-        }
-    }
-
-    <span style="color:#902000">int</span> cur <span style="color:#666">=</span> V;
-    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> N; i <span style="color:#666">&gt;</span> <span style="color:#40a070">0</span>; <span style="color:#666">--</span>i) {
-        <span style="color:#007020;font-weight:bold">if</span> (dp[i][cur] <span style="color:#666">==</span> dp[i <span style="color:#666">-</span> <span style="color:#40a070">1</span>][cur <span style="color:#666">-</span> v[i]] <span style="color:#666">+</span> w[i]) {
-            cout <span style="color:#666">&lt;&lt;</span> N <span style="color:#666">+</span> <span style="color:#40a070">1</span> <span style="color:#666">-</span> i <span style="color:#666">&lt;&lt;</span> <span style="color:#4070a0">&#34; &#34;</span>;
-            <span style="color:#60a0b0;font-style:italic">// 取完当前物品，目标体积需要减去当前体积
-</span><span style="color:#60a0b0;font-style:italic"></span>            cur <span style="color:#666">-=</span> v[i];
-        }
-    }
-
-    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
-}
-</code></pre></div><h2 id="-学习来源">🔍 学习来源</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">V</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span> <span class="o">&gt;&gt;</span> <span class="n">V</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 由于倒推需要用到中间状态，因此这里用二维数组保存所有状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">dp</span><span class="p">[</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">V</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">V</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">cur</span><span class="p">]</span> <span class="o">==</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">cur</span> <span class="o">-</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 取完当前物品，目标体积需要减去当前体积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">cur</span> <span class="o">-=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="-学习来源">🔍 学习来源</h2>
 <p><a href="https://www.bilibili.com/video/BV1Qt411R7v8?p=2&amp;t=1608">B 站大雪莱-背包九讲专题 <i class="fa fa-external-link-alt"></i></a></p>
     </div>
 
@@ -472,6 +472,7 @@
   document.addEventListener('pjax:success', () => {
     
     NexT.boot.refresh();
+    NexT.plugins.localSearch();
     Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
       $target.classList.add('animated');
     })
@@ -534,7 +535,7 @@
   mermaid.init({ startOnLoad: true }, ".mermaid");
 </script>
   </div>
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+  <script src="js/ribbon.js"></script>
 </body>
 
 </html>

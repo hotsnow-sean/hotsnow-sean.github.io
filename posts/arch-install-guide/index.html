@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -334,7 +334,6 @@
 <hr>
 <p>之前玩 Linux 时记录的文档，托管到博客上做记录<br>
 基本根据<a href="https://wiki.archlinux.org/index.php/Installation_guide" title="官方安装向导">ArchLinux 官方向导 <i class="fa fa-external-link-alt"></i></a>而来，综合了一些会遇到的问题</p>
-
 <div class="note danger">
 注意本文更新时间，部分内容可能已经不适用
 
@@ -433,7 +432,7 @@
 <ul>
 <li><code>在 /etc/hostname 文件中输入 myhostname</code></li>
 <li><code>vim /etc/hosts</code> 输入以下内容
-<pre><code>127.0.0.1	localhost
+<pre tabindex="0"><code>127.0.0.1	localhost
 ::1		    localhost
 127.0.1.1	myhostname.localdomain	myhostname
 </code></pre></li>
@@ -500,7 +499,7 @@
 <h2 id="八使用中可能的问题">八、使用中可能的问题</h2>
 <h3 id="1archlinuxcn-仓库使用问题">1、ArchlinuxCN 仓库使用问题</h3>
 <p>在使用 ArchlinuxCN 中文社区仓库时，除了添加相应的服务器地址，还需要安装 <code>archlinuxcn-keyring</code> 包来导入 <code>GPG key</code>，安装时，可能会遇到很多 ERROR 报错。这时可以参考 <a href="https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/">密钥环这篇文</a>， 以 root 权限用以下命令解决：</p>
-<pre><code>pacman -Syu haveged
+<pre tabindex="0"><code>pacman -Syu haveged
 systemctl start haveged
 systemctl enable haveged
 
@@ -603,6 +602,7 @@ pacman-key --populate archlinuxcn
   document.addEventListener('pjax:success', () => {
     
     NexT.boot.refresh();
+    NexT.plugins.localSearch();
     Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
       $target.classList.add('animated');
     })
@@ -621,7 +621,7 @@ pacman-key --populate archlinuxcn
   <div class="pjax">
     
   </div>
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+  <script src="js/ribbon.js"></script>
 </body>
 
 </html>

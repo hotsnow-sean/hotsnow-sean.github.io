@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -148,7 +148,7 @@
         <li><a href="#-确定横坐标">🔍 确定横坐标</a></li>
         <li><a href="#-部分代码">📄 部分代码</a></li>
         <li><a href="#-打印器使用方法">🛠 打印器使用方法</a></li>
-        <li><a href="#eg1-show">✨ 打印效果展示</a></li>
+        <li><a href="#-打印效果展示">✨ 打印效果展示</a></li>
         <li><a href="#-成品分享">🎁 成品分享</a></li>
       </ul>
     </li>
@@ -308,21 +308,21 @@
 </div>
 </p>
 <blockquote>
-<p>温馨提示：可以在目录先拉到 <a href="#eg1-show">打印效果展示章节</a> 看看是不是自己想要的，再决定看不看</p>
+<p>温馨提示：可以在目录先拉到 打印效果展示章节 看看是不是自己想要的，再决定看不看</p>
 </blockquote>
 <h2 id="-整体思路">💥 整体思路</h2>
 <p>  既然是在在控制台中打印一棵树，我们就要考虑到控制台输出的特性，首先，一般控制台的整个界面实际上就相当于一张网格或者棋盘，每个字符都正好放在一个格子里（这里不考虑中文以及特殊字符，因为它们的宽度在不同字体下宽度可能差异较大，会导致用程序去判断一个结点占用的大小非常困难），那么我们的目的就是确定每个二叉树结点所处的位置，即一个二维坐标。</p>
 <p>  其中，纵向坐标很好确定，甚至可以说不需要确定，因为我们只要一层一层地去打印这棵树，打完一层后进行换行，那么它们的纵向位置天然就是对的。</p>
 <p>  所以问题就转化为确定每个结点的横向坐标，首先方便起见，我们定义一个结点，用来存储每个结点的必要信息，最后将这些信息完全确定后，拿着这些信息直接输出就OK了。下面是这个结构体或类的属性：</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">std<span style="color:#666">::</span>string content;    <span style="color:#60a0b0;font-style:italic">// 这个结点要展示的内容
-</span><span style="color:#60a0b0;font-style:italic"></span>InfoNode<span style="color:#666">*</span> parent;       <span style="color:#60a0b0;font-style:italic">// 父节点
-</span><span style="color:#60a0b0;font-style:italic"></span>InfoNode<span style="color:#666">*</span> left <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">nullptr</span>;   <span style="color:#60a0b0;font-style:italic">// 左子节点
-</span><span style="color:#60a0b0;font-style:italic"></span>InfoNode<span style="color:#666">*</span> right <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">nullptr</span>;  <span style="color:#60a0b0;font-style:italic">// 右子节点
-</span><span style="color:#60a0b0;font-style:italic"></span>InfoNode<span style="color:#666">*</span> next <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">nullptr</span>;   <span style="color:#60a0b0;font-style:italic">// 同一层的下一个节点，这个可以没有，仅仅为了方便层序遍历
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#902000">int</span> pos <span style="color:#666">=</span> <span style="color:#40a070">0</span>;    <span style="color:#60a0b0;font-style:italic">// 结点起始位置
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#902000">int</span> middle <span style="color:#666">=</span> <span style="color:#40a070">0</span>; <span style="color:#60a0b0;font-style:italic">// 结点中心距起始位置的距离
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#902000">int</span> last <span style="color:#666">=</span> <span style="color:#40a070">0</span>;   <span style="color:#60a0b0;font-style:italic">// 结点末尾距起始位置的距离
-</span></code></pre></div><p>  要注意，这些属性里面前个都是根据你的二叉树自动生成的，相当于复制了一棵树，只不过将结点的数据改成了字符串类型<code>content</code>用于打印以及确定结点大小。其次，最后两个属性<code>middle</code>和<code>last</code>是相对位置，也是根据结点本身所占宽度直接确定的。因此所有属性里面唯一未确定的就只有<code>pos</code>，这也就是之前提到的横坐标了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">content</span><span class="p">;</span>    <span class="c1">// 这个结点要展示的内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">InfoNode</span><span class="o">*</span> <span class="n">parent</span><span class="p">;</span>       <span class="c1">// 父节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">InfoNode</span><span class="o">*</span> <span class="n">left</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>   <span class="c1">// 左子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">InfoNode</span><span class="o">*</span> <span class="n">right</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>  <span class="c1">// 右子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">InfoNode</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>   <span class="c1">// 同一层的下一个节点，这个可以没有，仅仅为了方便层序遍历
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// 结点起始位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">middle</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 结点中心距起始位置的距离
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// 结点末尾距起始位置的距离
+</span></span></span></code></pre></div><p>  要注意，这些属性里面前个都是根据你的二叉树自动生成的，相当于复制了一棵树，只不过将结点的数据改成了字符串类型<code>content</code>用于打印以及确定结点大小。其次，最后两个属性<code>middle</code>和<code>last</code>是相对位置，也是根据结点本身所占宽度直接确定的。因此所有属性里面唯一未确定的就只有<code>pos</code>，这也就是之前提到的横坐标了。</p>
 <h2 id="-确定横坐标">🔍 确定横坐标</h2>
 <p>  这个问题是整个可视化问题的核心，看起来很复杂，实际上可以简单归纳为以下几步：</p>
 <ul>
@@ -346,100 +346,101 @@
 <p>  两棵子树之间的冲突问题就很简单了，首先对于两棵子树相对应的每一层，找到左子树最右的位置，找到右子树最左的位置，将其作差，在经过你预想的两个相邻结点间的最小距离的调整，你就会得到每一层的冲突长度，在各层的冲突长度中取一个最大的，将其对半分给左右子树，然后左子树整体向左移动，右子树整体向右移动，那么问题就解决了。</p>
 <h2 id="-部分代码">📄 部分代码</h2>
 <p>  整个过程其实就这么简单，首先，自上向下给每个结点一个位置初始值，然后，自下向上调整每个结点子树之间的冲突。语言描述的可能冗长，但核心调整代码也就不到100行，其中多一半还是计算冲突长度的代码，如果说调整逻辑的话只有20行左右的代码量。下面粘出部分代码：</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#60a0b0;font-style:italic">// 整个打印器的c++类的定义
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">Printer</span> {
-<span style="color:#007020;font-weight:bold">private</span><span style="color:#666">:</span>
-    <span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">InfoNode</span>;
-
-<span style="color:#007020;font-weight:bold">private</span><span style="color:#666">:</span>
-    InfoNode<span style="color:#666">*</span> root <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">nullptr</span>;
-    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>InfoNode<span style="color:#666">*&gt;</span> layerHead; <span style="color:#60a0b0;font-style:italic">// 用于层序遍历，每一层的第一个结点
-</span><span style="color:#60a0b0;font-style:italic"></span>
-<span style="color:#007020;font-weight:bold">public</span><span style="color:#666">:</span>
-    Printer() <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">default</span>;
-    <span style="color:#007020;font-weight:bold">virtual</span> <span style="color:#666">~</span>Printer();
-
-    <span style="color:#007020;font-weight:bold">friend</span> std<span style="color:#666">::</span>ostream<span style="color:#666">&amp;</span> <span style="color:#007020;font-weight:bold">operator</span><span style="color:#666">&lt;&lt;</span>(std<span style="color:#666">::</span>ostream<span style="color:#666">&amp;</span> os, Printer<span style="color:#666">&amp;</span> tree); <span style="color:#60a0b0;font-style:italic">// 重载之后，在c++中就可以直接 cout 你的二叉树了
-</span><span style="color:#60a0b0;font-style:italic"></span>
-<span style="color:#007020;font-weight:bold">protected</span><span style="color:#666">:</span>
-    <span style="color:#007020;font-weight:bold">virtual</span> <span style="color:#902000">void</span><span style="color:#666">*</span> getRoot() <span style="color:#007020;font-weight:bold">const</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>;
-    <span style="color:#007020;font-weight:bold">virtual</span> <span style="color:#902000">void</span><span style="color:#666">*</span> <span style="color:#06287e">getLeft</span>(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>;
-    <span style="color:#007020;font-weight:bold">virtual</span> <span style="color:#902000">void</span><span style="color:#666">*</span> <span style="color:#06287e">getRight</span>(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>;
-    <span style="color:#007020;font-weight:bold">virtual</span> std<span style="color:#666">::</span>string getString(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>;
-
-<span style="color:#007020;font-weight:bold">private</span><span style="color:#666">:</span>
-    <span style="color:#902000">void</span> initTreeStructure(); <span style="color:#60a0b0;font-style:italic">// 初始化树结构，并填充结点信息（除 pos 之外）
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">void</span> <span style="color:#06287e">setLayerLink</span>(); <span style="color:#60a0b0;font-style:italic">// 设置层内链接，填充 layerHead，这个可以不用，只用于方便层序遍历
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">void</span> <span style="color:#06287e">initPosInfo</span>(); <span style="color:#60a0b0;font-style:italic">// 初始化位置信息
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">void</span> <span style="color:#06287e">agjustPosInfo</span>(); <span style="color:#60a0b0;font-style:italic">// 解决冲突
-</span><span style="color:#60a0b0;font-style:italic"></span>
-    InfoNode<span style="color:#666">*</span> <span style="color:#06287e">initTreeStructure</span>(<span style="color:#902000">void</span><span style="color:#666">*</span> node, InfoNode<span style="color:#666">*</span> parent); <span style="color:#60a0b0;font-style:italic">// 根据传入信息生成树，返回根节点（递归）
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">int</span> <span style="color:#06287e">calcCrossLen</span>(InfoNode<span style="color:#666">*</span> node); <span style="color:#60a0b0;font-style:italic">// 计算所给节点的两棵子树的最大冲突长度
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">void</span> <span style="color:#06287e">movePos</span>(InfoNode<span style="color:#666">*</span> node, <span style="color:#902000">int</span> len); <span style="color:#60a0b0;font-style:italic">// 移动整棵树
-</span><span style="color:#60a0b0;font-style:italic"></span>};
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#60a0b0;font-style:italic">// 其中，核心问题即调整冲突的代码
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#902000">void</span> Printer<span style="color:#666">::</span>agjustPosInfo() {
-    <span style="color:#007020;font-weight:bold">if</span> (<span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>root <span style="color:#666">==</span> <span style="color:#007020;font-weight:bold">nullptr</span>) <span style="color:#007020;font-weight:bold">return</span>;
-    <span style="color:#60a0b0;font-style:italic">// 层序，自下向上
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>layerHead.size() <span style="color:#666">-</span> <span style="color:#40a070">2</span>; i <span style="color:#666">&gt;=</span> <span style="color:#40a070">0</span>; i<span style="color:#666">--</span>) {
-        InfoNode<span style="color:#666">*</span> cur <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>layerHead[i];
-        <span style="color:#007020;font-weight:bold">while</span> (cur) {
-            <span style="color:#60a0b0;font-style:italic">// 计算最大冲突距离
-</span><span style="color:#60a0b0;font-style:italic"></span>            <span style="color:#902000">int</span> cross <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>calcCrossLen(cur);
-            <span style="color:#60a0b0;font-style:italic">// 调整
-</span><span style="color:#60a0b0;font-style:italic"></span>            <span style="color:#007020;font-weight:bold">if</span> (cross <span style="color:#666">&gt;</span> <span style="color:#40a070">0</span>) {
-                <span style="color:#902000">int</span> left <span style="color:#666">=</span> cross <span style="color:#666">/</span> <span style="color:#40a070">2</span>;
-                <span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>movePos(cur<span style="color:#666">-&gt;</span>left, <span style="color:#666">-</span>left);
-                <span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>movePos(cur<span style="color:#666">-&gt;</span>right, cross <span style="color:#666">-</span> left);
-            }
-            cur <span style="color:#666">=</span> cur<span style="color:#666">-&gt;</span>next;
-        }
-    }
-    <span style="color:#60a0b0;font-style:italic">// 找到最小坐标，将整棵树进行偏移，消灭负值
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">int</span> minPos <span style="color:#666">=</span> <span style="color:#40a070">0</span>;
-    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">auto</span> <span style="color:#002070;font-weight:bold">node</span> : <span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>layerHead) {
-        minPos <span style="color:#666">=</span> node<span style="color:#666">-&gt;</span>pos <span style="color:#666">&lt;</span> minPos <span style="color:#666">?</span> node<span style="color:#666">-&gt;</span><span style="color:#002070;font-weight:bold">pos</span> : minPos;
-    }
-    <span style="color:#007020;font-weight:bold">if</span> (minPos <span style="color:#666">&lt;</span> <span style="color:#40a070">0</span>) {
-        <span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>movePos(<span style="color:#007020;font-weight:bold">this</span><span style="color:#666">-&gt;</span>root, <span style="color:#666">-</span>minPos);
-    }
-}
-</code></pre></div><h2 id="-打印器使用方法">🛠 打印器使用方法</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 整个打印器的c++类的定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Printer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">InfoNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">InfoNode</span><span class="o">*</span> <span class="n">root</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">InfoNode</span><span class="o">*&gt;</span> <span class="n">layerHead</span><span class="p">;</span> <span class="c1">// 用于层序遍历，每一层的第一个结点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Printer</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">Printer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">friend</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="n">Printer</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">);</span> <span class="c1">// 重载之后，在c++中就可以直接 cout 你的二叉树了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="n">getRoot</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="nf">getLeft</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="nf">getRight</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">getString</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">initTreeStructure</span><span class="p">();</span> <span class="c1">// 初始化树结构，并填充结点信息（除 pos 之外）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">setLayerLink</span><span class="p">();</span> <span class="c1">// 设置层内链接，填充 layerHead，这个可以不用，只用于方便层序遍历
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">initPosInfo</span><span class="p">();</span> <span class="c1">// 初始化位置信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">agjustPosInfo</span><span class="p">();</span> <span class="c1">// 解决冲突
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">InfoNode</span><span class="o">*</span> <span class="nf">initTreeStructure</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">,</span> <span class="n">InfoNode</span><span class="o">*</span> <span class="n">parent</span><span class="p">);</span> <span class="c1">// 根据传入信息生成树，返回根节点（递归）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="nf">calcCrossLen</span><span class="p">(</span><span class="n">InfoNode</span><span class="o">*</span> <span class="n">node</span><span class="p">);</span> <span class="c1">// 计算所给节点的两棵子树的最大冲突长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">movePos</span><span class="p">(</span><span class="n">InfoNode</span><span class="o">*</span> <span class="n">node</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">);</span> <span class="c1">// 移动整棵树
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 其中，核心问题即调整冲突的代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="n">Printer</span><span class="o">::</span><span class="n">agjustPosInfo</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 层序，自下向上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">layerHead</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">InfoNode</span><span class="o">*</span> <span class="n">cur</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">layerHead</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">cur</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 计算最大冲突距离
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">int</span> <span class="n">cross</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">calcCrossLen</span><span class="p">(</span><span class="n">cur</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 调整
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">cross</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">cross</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="o">-&gt;</span><span class="n">movePos</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="o">-</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="o">-&gt;</span><span class="n">movePos</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">cross</span> <span class="o">-</span> <span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 找到最小坐标，将整棵树进行偏移，消灭负值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">minPos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">node</span> <span class="p">:</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">layerHead</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">minPos</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">&lt;</span> <span class="n">minPos</span> <span class="o">?</span> <span class="n">node</span><span class="o">-&gt;</span><span class="nl">pos</span> <span class="p">:</span> <span class="n">minPos</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">minPos</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">-&gt;</span><span class="n">movePos</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">,</span> <span class="o">-</span><span class="n">minPos</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="-打印器使用方法">🛠 打印器使用方法</h2>
 <p>  整个打印器实际上是一个接口，是一个单独的模块相当于，使用时只需要将其头文件包含到你的代码里，然后让你的二叉树继承它，再实现以下四个虚方法即可：</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020;font-weight:bold">virtual</span> <span style="color:#902000">void</span><span style="color:#666">*</span> <span style="color:#06287e">getRoot</span>() <span style="color:#007020;font-weight:bold">const</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>; <span style="color:#60a0b0;font-style:italic">// 返回根节点
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">virtual</span> <span style="color:#902000">void</span><span style="color:#666">*</span> <span style="color:#06287e">getLeft</span>(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>; <span style="color:#60a0b0;font-style:italic">// 返回 node 的左子节点
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">virtual</span> <span style="color:#902000">void</span><span style="color:#666">*</span> <span style="color:#06287e">getRight</span>(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>; <span style="color:#60a0b0;font-style:italic">// 返回 node 的右子节点
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">virtual</span> std<span style="color:#666">::</span>string getString(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>; <span style="color:#60a0b0;font-style:italic">// 返回 node 需要展示输出的字符串
-</span></code></pre></div><p>  这些方法使用 <code>void*</code> 的原因是打印器本身并不关心你的二叉树结点是什么样的，它只是根据你的返回值去复制一棵它需要的信息树出来罢了，也就是说，你的这个类甚至可以压根就不是一个二叉树的类，只要实现了这几个方法，它就可以打印，例如：</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">IamaTree</span> <span style="color:#666">:</span> <span style="color:#007020;font-weight:bold">public</span> Printer {
-    <span style="color:#902000">void</span><span style="color:#666">*</span> <span style="color:#06287e">getRoot</span>() <span style="color:#007020;font-weight:bold">const</span> {
-        <span style="color:#007020;font-weight:bold">return</span> (<span style="color:#902000">void</span><span style="color:#666">*</span>)<span style="color:#40a070">1</span>;
-    }
-    <span style="color:#902000">void</span><span style="color:#666">*</span> <span style="color:#06287e">getLeft</span>(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> {
-        <span style="color:#007020;font-weight:bold">if</span> (node <span style="color:#666">==</span> (<span style="color:#902000">void</span><span style="color:#666">*</span>)<span style="color:#40a070">1</span>) <span style="color:#007020;font-weight:bold">return</span> (<span style="color:#902000">void</span><span style="color:#666">*</span>)<span style="color:#40a070">2</span>;
-        <span style="color:#007020;font-weight:bold">else</span> <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
-    }
-    <span style="color:#902000">void</span><span style="color:#666">*</span> <span style="color:#06287e">getRight</span>(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> {
-        <span style="color:#007020;font-weight:bold">if</span> (node <span style="color:#666">==</span> (<span style="color:#902000">void</span><span style="color:#666">*</span>)<span style="color:#40a070">1</span>) <span style="color:#007020;font-weight:bold">return</span> (<span style="color:#902000">void</span><span style="color:#666">*</span>)<span style="color:#40a070">3</span>;
-        <span style="color:#007020;font-weight:bold">else</span> <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
-    }
-    std<span style="color:#666">::</span>string getString(<span style="color:#902000">void</span><span style="color:#666">*</span> node) <span style="color:#007020;font-weight:bold">const</span> {
-        <span style="color:#007020;font-weight:bold">if</span> (node <span style="color:#666">==</span> (<span style="color:#902000">void</span><span style="color:#666">*</span>)<span style="color:#40a070">1</span>) <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">&#34;A&#34;</span>;
-        <span style="color:#007020;font-weight:bold">if</span> (node <span style="color:#666">==</span> (<span style="color:#902000">void</span><span style="color:#666">*</span>)<span style="color:#40a070">2</span>) <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">&#34;B&#34;</span>;
-        <span style="color:#007020;font-weight:bold">if</span> (node <span style="color:#666">==</span> (<span style="color:#902000">void</span><span style="color:#666">*</span>)<span style="color:#40a070">3</span>) <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">&#34;C&#34;</span>;
-        <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">&#34;&#34;</span>;
-    }
-};
-
-<span style="color:#902000">int</span> <span style="color:#06287e">main</span>(<span style="color:#902000">int</span> argc, <span style="color:#902000">char</span> <span style="color:#007020;font-weight:bold">const</span><span style="color:#666">*</span> argv[]) {
-    IamaTree tree;
-    cout <span style="color:#666">&lt;&lt;</span> tree;
-
-    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
-}
-</code></pre></div><p>运行结果如下：<img src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host@latest/img/20201228110719.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="nf">getRoot</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 返回根节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="nf">getLeft</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 返回 node 的左子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="nf">getRight</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 返回 node 的右子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">getString</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 返回 node 需要展示输出的字符串
+</span></span></span></code></pre></div><p>  这些方法使用 <code>void*</code> 的原因是打印器本身并不关心你的二叉树结点是什么样的，它只是根据你的返回值去复制一棵它需要的信息树出来罢了，也就是说，你的这个类甚至可以压根就不是一个二叉树的类，只要实现了这几个方法，它就可以打印，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">IamaTree</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Printer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="nf">getRoot</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="nf">getLeft</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="nf">getRight</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">getString</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="s">&#34;A&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="s">&#34;B&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">3</span><span class="p">)</span> <span class="k">return</span> <span class="s">&#34;C&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">IamaTree</span> <span class="n">tree</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tree</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>运行结果如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host@latest/img/20201228110719.png" alt=""></p>
 <p>  可以发现，我们的 <code>IamaTree</code> 类压根就和二叉树没有关系，它仅仅是实现了四个方法，打印器就可以帮你打印出来，可见这样的实现模式还是很方便的。</p>
-<h2 id="eg1-show">✨ 打印效果展示</h2>
+<h2 id="-打印效果展示">✨ 打印效果展示</h2>
 <p><img src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host@latest/img/20201228111421.png" alt=""></p>
 <p><img src="https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host@latest/img/20201228111459.png" alt=""></p>
 <p>  可以看到，无论是怎样奇葩的树，他都能够完美打印出来，而且由于它获取结点要展示什么时，调用的是你实现的 <code>getSteing</code> 方法，因此不仅可以输出结点存储的数据，还可以输出任何你想输出的东西，比如上面我就输出了每个结点的父节点信息，这对于测试二叉树的正确性相当有用。</p>
@@ -542,6 +543,7 @@
   document.addEventListener('pjax:success', () => {
     
     NexT.boot.refresh();
+    NexT.plugins.localSearch();
     Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
       $target.classList.add('animated');
     })
@@ -559,8 +561,52 @@
 </script>
   <div class="pjax">
     
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: { '[+]': [['$', '$']] },
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = { node: text, delim: '', n: 0 };
+              math.end = { node: text, delim: '', n: 0 };
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+  mermaid.init({ startOnLoad: true }, ".mermaid");
+</script>
   </div>
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+  <script src="js/ribbon.js"></script>
 </body>
 
 </html>

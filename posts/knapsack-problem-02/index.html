@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -330,34 +330,34 @@
 <h2 id="-初步解法">✅ 初步解法</h2>
 <h3 id="思路">思路</h3>
 <p>  从<a href="/posts/knapsack-problem-01/" title="背包九讲（一） 01 背包">上一讲</a>内容的结论出发得到下面这个转移方程</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">dp[j] <span style="color:#666">=</span> max(dp[j <span style="color:#666">-</span> v] <span style="color:#666">+</span> w, dp[j])
-</code></pre></div><p>这个方程实际上代表了我们每次考虑一个新的物品时，只要去决定拿与不拿即可，也就是 01 背包问题名字里面的‘01’的含义。那么我们很容易想到，完全背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到拿不下为止。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span></span></code></pre></div><p>这个方程实际上代表了我们每次考虑一个新的物品时，只要去决定拿与不拿即可，也就是 01 背包问题名字里面的‘01’的含义。那么我们很容易想到，完全背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到拿不下为止。</p>
 <h3 id="代码">代码</h3>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
-</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;cstring&gt;</span><span style="color:#007020">
-</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;algorithm&gt;</span><span style="color:#007020">
-</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">using</span> <span style="color:#007020;font-weight:bold">namespace</span> std;
-
-<span style="color:#902000">int</span> <span style="color:#06287e">main</span>() {
-    <span style="color:#902000">int</span> N, V;
-    cin <span style="color:#666">&gt;&gt;</span> N <span style="color:#666">&gt;&gt;</span> V;
-    <span style="color:#60a0b0;font-style:italic">// 定义数组并初始化
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">int</span> dp[V <span style="color:#666">+</span> <span style="color:#40a070">1</span>];
-    memset(dp, <span style="color:#40a070">0</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(dp));
-    <span style="color:#902000">int</span> v, w;
-    <span style="color:#60a0b0;font-style:italic">// 状态转移计算
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">1</span>; i <span style="color:#666">&lt;=</span> N; <span style="color:#666">++</span>i) {
-        cin <span style="color:#666">&gt;&gt;</span> v <span style="color:#666">&gt;&gt;</span> w;
-        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> V; j <span style="color:#666">&gt;=</span> v; <span style="color:#666">--</span>j) {
-            <span style="color:#60a0b0;font-style:italic">// 从 1 个开始枚举直到拿不下
-</span><span style="color:#60a0b0;font-style:italic"></span>            <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> k <span style="color:#666">=</span> <span style="color:#40a070">1</span>; k <span style="color:#666">*</span> v <span style="color:#666">&lt;=</span> j; <span style="color:#666">++</span>k)
-                dp[j] <span style="color:#666">=</span> max(dp[j <span style="color:#666">-</span> k <span style="color:#666">*</span> v] <span style="color:#666">+</span> k <span style="color:#666">*</span> w, dp[j]);
-        }
-    }
-    cout <span style="color:#666">&lt;&lt;</span> dp[V] <span style="color:#666">&lt;&lt;</span> endl;
-    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">V</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span> <span class="o">&gt;&gt;</span> <span class="n">V</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 定义数组并初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 状态转移计算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">V</span><span class="p">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">v</span><span class="p">;</span> <span class="o">--</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 从 1 个开始枚举直到拿不下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">*</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">;</span> <span class="o">++</span><span class="n">k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
 <li>空间复杂度：$O(V)$</li>
 <li>时间复杂度：$O(N*V^2)$</li>
 </ul>
@@ -365,30 +365,30 @@
 <h3 id="思路-1">思路</h3>
 <p>  优化解法实际上代码相当简单，就是将 01 背包中的倒序遍历改为正序遍历即可。那么为什么这样就可以代表完全背包呢？在 01 背包的分析中我们知道之所以需要倒序遍历，是因为每次状态计算都会从上一层即不考虑当前物品的情况下转移，如果正序遍历，会导致我们用于更新的状态是已经考虑当前物品的情况下的价值，也就是随着体积的增长，当前物品会被多次考虑直到预定体积为止。啪唧~~，巧了，完全背包问题要的就是当前物品可以被无限次使用直到放不下，因此正序遍历即可完成。</p>
 <h3 id="代码-1">代码</h3>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#007020">#include</span> <span style="color:#007020">&lt;iostream&gt;</span><span style="color:#007020">
-</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;cstring&gt;</span><span style="color:#007020">
-</span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;algorithm&gt;</span><span style="color:#007020">
-</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">using</span> <span style="color:#007020;font-weight:bold">namespace</span> std;
-
-<span style="color:#902000">int</span> <span style="color:#06287e">main</span>() {
-    <span style="color:#902000">int</span> N, V;
-    cin <span style="color:#666">&gt;&gt;</span> N <span style="color:#666">&gt;&gt;</span> V;
-    <span style="color:#60a0b0;font-style:italic">// 定义数组并初始化
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#902000">int</span> dp[V <span style="color:#666">+</span> <span style="color:#40a070">1</span>];
-    memset(dp, <span style="color:#40a070">0</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(dp));
-    <span style="color:#902000">int</span> v, w;
-    <span style="color:#60a0b0;font-style:italic">// 状态转移计算
-</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">1</span>; i <span style="color:#666">&lt;=</span> N; <span style="color:#666">++</span>i) {
-        cin <span style="color:#666">&gt;&gt;</span> v <span style="color:#666">&gt;&gt;</span> w;
-        <span style="color:#60a0b0;font-style:italic">// 注意体积从 v 开始增长，因为如果小于 v 则拿不下当前物品也就没必要更新状态
-</span><span style="color:#60a0b0;font-style:italic"></span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> j <span style="color:#666">=</span> v; j <span style="color:#666">&lt;=</span> V; <span style="color:#666">++</span>j) {
-            dp[j] <span style="color:#666">=</span> max(dp[j <span style="color:#666">-</span> v] <span style="color:#666">+</span> w, dp[j]);
-        }
-    }
-    cout <span style="color:#666">&lt;&lt;</span> dp[V] <span style="color:#666">&lt;&lt;</span> endl;
-    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">V</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span> <span class="o">&gt;&gt;</span> <span class="n">V</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 定义数组并初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 状态转移计算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注意体积从 v 开始增长，因为如果小于 v 则拿不下当前物品也就没必要更新状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">V</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
 <li>空间复杂度：$O(V)$</li>
 <li>时间复杂度：$O(N*V)$</li>
 </ul>
@@ -494,6 +494,7 @@
   document.addEventListener('pjax:success', () => {
     
     NexT.boot.refresh();
+    NexT.plugins.localSearch();
     Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
       $target.classList.add('animated');
     })
@@ -556,7 +557,7 @@
   mermaid.init({ startOnLoad: true }, ".mermaid");
 </script>
   </div>
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+  <script src="js/ribbon.js"></script>
 </body>
 
 </html>

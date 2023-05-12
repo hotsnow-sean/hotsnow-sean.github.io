@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.75784e9d05a7deed0e29c8ca7dba4fe93c1976f897dc725b19ef87a142790bdb.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -64,7 +64,7 @@
     </li>
     
     <li class="menu-item">
-      <a href="/tags/" class="menu-item-active" rel="section"><i class='fa fa-tags fa-fw'></i>标签<span class="badge">15</span>
+      <a href="/tags/" rel="section"><i class='fa fa-tags fa-fw'></i>标签<span class="badge">15</span>
       </a>
     </li>
     
@@ -292,7 +292,12 @@
     
     
     
-    <a href="https://hotsnow-sean.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 13.8px;" class="tag-cloud-1">二叉树</a>
+    <a href="https://hotsnow-sean.github.io/tags/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" style="font-size: 28.2px;" class="tag-cloud-9">背包九讲</a>
+    
+    
+    
+    
+    <a href="https://hotsnow-sean.github.io/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.6px;" class="tag-cloud-2">博客</a>
     
     
     
@@ -302,7 +307,7 @@
     
     
     
-    <a href="https://hotsnow-sean.github.io/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.6px;" class="tag-cloud-2">博客</a>
+    <a href="https://hotsnow-sean.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 13.8px;" class="tag-cloud-1">二叉树</a>
     
     
     
@@ -318,11 +323,6 @@
     
     
     <a href="https://hotsnow-sean.github.io/tags/%E7%AE%97%E6%B3%95/" style="font-size: 30px;" class="tag-cloud-10">算法</a>
-    
-    
-    
-    
-    <a href="https://hotsnow-sean.github.io/tags/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" style="font-size: 28.2px;" class="tag-cloud-9">背包九讲</a>
     
   </div>
 </div>
@@ -372,6 +372,7 @@
   document.addEventListener('pjax:success', () => {
     
     NexT.boot.refresh();
+    NexT.plugins.localSearch();
     Array.prototype.forEach.call(document.querySelectorAll('.menu-item'), $target => {
       $target.classList.add('animated');
     })
@@ -390,7 +391,7 @@
   <div class="pjax">
     
   </div>
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1/dist/ribbon.min.js"></script>
+  <script src="js/ribbon.js"></script>
 </body>
 
 </html>

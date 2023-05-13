@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.5d6aa2ae26fe98337d2532edde76e229c227bb92b9e7c91fd37c9174516ee678.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -142,25 +142,21 @@
         <div class="post-toc">
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#-01-背包问题">🎒 01 背包问题</a>
+    <li><a href="#-题目">❓ 题目</a></li>
+    <li><a href="#-解法一二维动态规划">✅ 解法一：二维动态规划</a>
       <ul>
-        <li><a href="#-题目">❓ 题目</a></li>
-        <li><a href="#-解法一二维动态规划">✅ 解法一：二维动态规划</a>
-          <ul>
-            <li><a href="#思路">思路</a></li>
-            <li><a href="#代码">代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#-解法二动态规划降维优化">✅ 解法二：动态规划降维优化</a>
-          <ul>
-            <li><a href="#思路-1">思路</a></li>
-            <li><a href="#代码-1">代码</a></li>
-            <li><a href="#引申">引申</a></li>
-          </ul>
-        </li>
-        <li><a href="#-总结">🏆 总结</a></li>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#代码">代码</a></li>
       </ul>
     </li>
+    <li><a href="#-解法二动态规划降维优化">✅ 解法二：动态规划降维优化</a>
+      <ul>
+        <li><a href="#思路-1">思路</a></li>
+        <li><a href="#代码-1">代码</a></li>
+        <li><a href="#引申">引申</a></li>
+      </ul>
+    </li>
+    <li><a href="#-总结">🏆 总结</a></li>
   </ul>
 </nav>
         </div>
@@ -341,7 +337,38 @@
 <li>转移方程：$dp[i][j] = max(dp[i-1][j-v(i)]+w(i),\quad dp[i-1][j])$</li>
 </ul>
 <h3 id="代码">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -368,7 +395,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ans</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>空间复杂度：$O(N*V)$</li>
 <li>时间复杂度：$O(N*V)$</li>
 </ul>
@@ -378,7 +407,33 @@
   答案是有的。我们可以大胆去掉第一维，想象当前这个一维数组存储的就是二维数组计算中的第 $i-1$ 行，那么，我们要将其转化为第 $i$ 行的结果，只需要倒序遍历即可，因为通过转移方程可以发现 $j$ 体积的结果只取决于上一行小于等于 $j$ 的结果。<br>
   可能一下想不通，直接上代码吧！</p>
 <h3 id="代码-1">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -400,7 +455,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>空间复杂度：$O(V)$</li>
 <li>时间复杂度：$O(N*V)$</li>
 </ul>
@@ -410,8 +467,15 @@
 <p>  那么，我们如何计算体积恰好等于 $V$ 时的最大价值呢？从上述分析的源头出发，既然是初始化导致体积不恰好等于，那么我们改变初始化方式使得所有状态只能从 0 体积转移即可。实际做法就是把除了 $dp[0]$ 以外的其余元素初始化为负无穷，这样的状态就必然是从 0 体积转移过去的，因为非 0 体积转移的结果是负无穷，在取 $max$ 时就会被取代。</p>
 <h2 id="-总结">🏆 总结</h2>
 <p><code>01背包问题</code>的优化解法转移方程如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-</span></span></code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

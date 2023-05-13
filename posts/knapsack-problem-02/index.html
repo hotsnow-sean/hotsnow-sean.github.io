@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.5d6aa2ae26fe98337d2532edde76e229c227bb92b9e7c91fd37c9174516ee678.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -142,24 +142,20 @@
         <div class="post-toc">
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#-完全背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943">🎒 完全背包问题 (<a href="https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;seid=7823159650487960943">B 站大雪莱-背包九讲专题 <i class="fa fa-external-link-alt"></i></a>)</a>
+    <li><a href="#-题目">❓ 题目</a></li>
+    <li><a href="#-初步解法">✅ 初步解法</a>
       <ul>
-        <li><a href="#-题目">❓ 题目</a></li>
-        <li><a href="#-初步解法">✅ 初步解法</a>
-          <ul>
-            <li><a href="#思路">思路</a></li>
-            <li><a href="#代码">代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#-优化解法">✅ 优化解法</a>
-          <ul>
-            <li><a href="#思路-1">思路</a></li>
-            <li><a href="#代码-1">代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#-总结">🏆 总结</a></li>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#代码">代码</a></li>
       </ul>
     </li>
+    <li><a href="#-优化解法">✅ 优化解法</a>
+      <ul>
+        <li><a href="#思路-1">思路</a></li>
+        <li><a href="#代码-1">代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#-总结">🏆 总结</a></li>
   </ul>
 </nav>
         </div>
@@ -330,10 +326,45 @@
 <h2 id="-初步解法">✅ 初步解法</h2>
 <h3 id="思路">思路</h3>
 <p>  从<a href="/posts/knapsack-problem-01/" title="背包九讲（一） 01 背包">上一讲</a>内容的结论出发得到下面这个转移方程</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-</span></span></code></pre></div><p>这个方程实际上代表了我们每次考虑一个新的物品时，只要去决定拿与不拿即可，也就是 01 背包问题名字里面的‘01’的含义。那么我们很容易想到，完全背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到拿不下为止。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个方程实际上代表了我们每次考虑一个新的物品时，只要去决定拿与不拿即可，也就是 01 背包问题名字里面的‘01’的含义。那么我们很容易想到，完全背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到拿不下为止。</p>
 <h3 id="代码">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -357,7 +388,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>空间复杂度：$O(V)$</li>
 <li>时间复杂度：$O(N*V^2)$</li>
 </ul>
@@ -365,7 +398,34 @@
 <h3 id="思路-1">思路</h3>
 <p>  优化解法实际上代码相当简单，就是将 01 背包中的倒序遍历改为正序遍历即可。那么为什么这样就可以代表完全背包呢？在 01 背包的分析中我们知道之所以需要倒序遍历，是因为每次状态计算都会从上一层即不考虑当前物品的情况下转移，如果正序遍历，会导致我们用于更新的状态是已经考虑当前物品的情况下的价值，也就是随着体积的增长，当前物品会被多次考虑直到预定体积为止。啪唧~~，巧了，完全背包问题要的就是当前物品可以被无限次使用直到放不下，因此正序遍历即可完成。</p>
 <h3 id="代码-1">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -388,7 +448,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>空间复杂度：$O(V)$</li>
 <li>时间复杂度：$O(N*V)$</li>
 </ul>

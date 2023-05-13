@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.5d6aa2ae26fe98337d2532edde76e229c227bb92b9e7c91fd37c9174516ee678.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -142,30 +142,26 @@
         <div class="post-toc">
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#-多重背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943">🎒 多重背包问题 (<a href="https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;seid=7823159650487960943">B 站大雪莱-背包九讲专题 <i class="fa fa-external-link-alt"></i></a>)</a>
+    <li><a href="#-题目">❓ 题目</a></li>
+    <li><a href="#-一般解法">✅ 一般解法</a>
       <ul>
-        <li><a href="#-题目">❓ 题目</a></li>
-        <li><a href="#-一般解法">✅ 一般解法</a>
-          <ul>
-            <li><a href="#思路">思路</a></li>
-            <li><a href="#代码">代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#-二进制优化解法">✅ 二进制优化解法</a>
-          <ul>
-            <li><a href="#思路-1">思路</a></li>
-            <li><a href="#代码-1">代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#-单调队列优化解法">✅ 单调队列优化解法</a>
-          <ul>
-            <li><a href="#思路-2">思路</a></li>
-            <li><a href="#代码-2">代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#-总结">🏆 总结</a></li>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#代码">代码</a></li>
       </ul>
     </li>
+    <li><a href="#-二进制优化解法">✅ 二进制优化解法</a>
+      <ul>
+        <li><a href="#思路-1">思路</a></li>
+        <li><a href="#代码-1">代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#-单调队列优化解法">✅ 单调队列优化解法</a>
+      <ul>
+        <li><a href="#思路-2">思路</a></li>
+        <li><a href="#代码-2">代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#-总结">🏆 总结</a></li>
   </ul>
 </nav>
         </div>
@@ -345,7 +341,35 @@
 <h3 id="思路">思路</h3>
 <p>  根据<a href="/posts/knapsack-problem-02/" title="背包九讲（二） 完全背包">上一讲</a>内容的一般解法，我们很容易想到，多重背包可以在每次考虑时，去决定拿几个当前物品即‘0，1，2，&hellip;’，直到当前物品的<font color=BlueViolet>数量上限（<em>类比完全背包的直到体积上限，这里多了一个数量的限制</em>）</font>为止。</p>
 <h3 id="代码">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -369,7 +393,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>空间复杂度：$O(V)$</li>
 <li>时间复杂度：$O(N\ast V\ast s)$ 在数据都在 100 范围内情况下，大概是一百万量级</li>
 </ul>
@@ -395,7 +421,47 @@
 </ul>
 <p>  使用这种拆法，每种物品会被拆为 $log(s)$ 份，总的时间复杂度也将降到 $10^7$ 量级。</p>
 <h3 id="代码-1">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
@@ -431,7 +497,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>空间复杂度：$O(V + N * \log(s))$</li>
 <li>时间复杂度：$O(N\ast V\ast \log(s))$ 按此时题目的数据范围，大概是千万量级</li>
 </ul>
@@ -446,19 +514,57 @@
 <p>  数据范围再次增大后，如果用二进制优化解法，时间复杂度又将上升到$3 \times 10^8$，所以不得不继续寻求新的优化方法。
 <em>这部分较难，希望以后还能看懂 233</em></p>
 <p>  首先回到最初的起点，观察一下最一般解法的状态转移部分：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v</span> <span class="o">&gt;&gt;</span> <span class="n">w</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">V</span><span class="p">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">v</span><span class="p">;</span> <span class="o">--</span><span class="n">j</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">k</span> <span class="o">*</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">;</span> <span class="o">++</span><span class="n">k</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>  可以发现内部的两层循环做的事情就是，在来了一个新物品后，将整个 dp 数组进行更新。继续观察 dp 数组每个元素的更新过程：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
-</span></span></code></pre></div><p>  又可以发现一件事，对于 <code>dp[j]</code> 来说，它的状态只可能从 <code>dp[j - k * v]</code> 转移而来，而 <code>j</code> 与 <code>j - k * v</code> 的关系就是——与 <code>v</code> 同余，每一轮来了一个新物品去更新 dp 数组的时候，实际上整个数组可以被分为若干类，分组的依据就是索引与<code>v</code>同余，总共分为<code>v</code>组。同一组之间才会发生状态转移，不同组之间毫无影响。<br>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>  可以发现内部的两层循环做的事情就是，在来了一个新物品后，将整个 dp 数组进行更新。继续观察 dp 数组每个元素的更新过程：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">w</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>  又可以发现一件事，对于 <code>dp[j]</code> 来说，它的状态只可能从 <code>dp[j - k * v]</code> 转移而来，而 <code>j</code> 与 <code>j - k * v</code> 的关系就是——与 <code>v</code> 同余，每一轮来了一个新物品去更新 dp 数组的时候，实际上整个数组可以被分为若干类，分组的依据就是索引与<code>v</code>同余，总共分为<code>v</code>组。同一组之间才会发生状态转移，不同组之间毫无影响。<br>
   紧接着分析同一组内部的转移，以余数为 1 举例，我们需要更新的有以下这些：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// dp[1], dp[1 + v], dp[1 + 2 * v], ... dp[1 + k * v] 其中 1 + k * v 小于等于 V
-</span></span></span></code></pre></div><p>  观察转移方程，对于 <code>dp[1 + n * v]，n代表0到k的任一值</code> 的更新，将其代入转移方程得到(用 last 代表这个物品考虑之前的 dp 数组值)：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">last</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">v</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">w</span><span class="p">);</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// dp[1], dp[1 + v], dp[1 + 2 * v], ... dp[1 + k * v] 其中 1 + k * v 小于等于 V
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>  观察转移方程，对于 <code>dp[1 + n * v]，n代表0到k的任一值</code> 的更新，将其代入转移方程得到(用 last 代表这个物品考虑之前的 dp 数组值)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">last</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">v</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">w</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// 式子中的 k 属于 [0, min(s, (1 + n * v) / v)] 即 [0, min(s,n)]
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 将 n - k 记作 m，则 m 属于 [max(0,n-s), n]，进而式子化为：
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dp</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">last</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">m</span> <span class="o">*</span> <span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span><span class="p">);</span>
@@ -466,9 +572,45 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">last</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">v</span> <span class="o">*</span> <span class="n">w</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// 其中的 i 就是与 j 同组且小于等于 j 的索引序列，序列为等差，公差为 v
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 到这里其实就已经化为经典的单调队列问题了：找出一组数里固定长度范围内的最大值，这里的范围就是 s
-</span></span></span></code></pre></div><p>  单调队列的具体做法不在这里展开，直接上优化后的代码：</p>
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>  单调队列的具体做法不在这里展开，直接上优化后的代码：</p>
 <h3 id="代码-2">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -498,7 +640,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>  虽然可能多用了两个数组辅助空间，但这种方法在如此高的数据范围下时间复杂度也仅仅是 $10^6$ 级别，真不愧是究极的背包解法，理解上的难度也是杠杠的！</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>  虽然可能多用了两个数组辅助空间，但这种方法在如此高的数据范围下时间复杂度也仅仅是 $10^6$ 级别，真不愧是究极的背包解法，理解上的难度也是杠杠的！</p>
 <h2 id="-总结">🏆 总结</h2>
 <p><code>多重背包问题</code>的解法对应于不同的数据范围有不同的思考方式，其中二进制优化方式应对不是非常大的数据范围已经足够了。而单调队列优化着实很难一下想通啊。。。</p>
     </div>

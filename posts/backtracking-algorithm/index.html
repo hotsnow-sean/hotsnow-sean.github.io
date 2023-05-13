@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.5d6aa2ae26fe98337d2532edde76e229c227bb92b9e7c91fd37c9174516ee678.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -142,26 +142,22 @@
         <div class="post-toc">
           <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#n-queens">N Queens</a>
       <ul>
-        <li><a href="#概述">概述</a></li>
-        <li><a href="#n-queens">N Queens</a>
-          <ul>
-            <li><a href="#-思路">💡 思路</a></li>
-            <li><a href="#-代码">📝 代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#subset-sum">Subset Sum</a>
-          <ul>
-            <li><a href="#-思路-1">💡 思路</a></li>
-            <li><a href="#-代码-1">📝 代码</a></li>
-            <li><a href="#-问题拓展">❓ 问题拓展</a></li>
-          </ul>
-        </li>
-        <li><a href="#回溯算法一般模板">回溯算法一般模板</a></li>
-        <li><a href="#参考文献">参考文献</a></li>
+        <li><a href="#-思路">💡 思路</a></li>
+        <li><a href="#-代码">📝 代码</a></li>
       </ul>
     </li>
+    <li><a href="#subset-sum">Subset Sum</a>
+      <ul>
+        <li><a href="#-思路-1">💡 思路</a></li>
+        <li><a href="#-代码-1">📝 代码</a></li>
+        <li><a href="#-问题拓展">❓ 问题拓展</a></li>
+      </ul>
+    </li>
+    <li><a href="#回溯算法一般模板">回溯算法一般模板</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
   </ul>
 </nav>
         </div>
@@ -342,22 +338,62 @@
   <div class="tab-content">
     
 <div class="tab-pane active" id="Queen-0">
-  <pre tabindex="0"><code>PlaceQueens(Q[1.. n], r):
-    if r = n + 1
-        print Q[1.. n]
-    else
-        for j ← 1 to n
-            legal ← True
-            for i ← 1 to r − 1
-                if (Q[i] = j) or (Q[i] = j + r − i) or (Q[i] = j − r + i)
-                    legal ← False
-            if legal
-                Q[r] ← j
-                PlaceQueens(Q[1.. n], r + 1) &lt;&lt;Recursion!&gt;&gt;
-</code></pre>
+  <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PlaceQueens(Q[1.. n], r):
+</span></span><span class="line"><span class="cl">    if r = n + 1
+</span></span><span class="line"><span class="cl">        print Q[1.. n]
+</span></span><span class="line"><span class="cl">    else
+</span></span><span class="line"><span class="cl">        for j ← 1 to n
+</span></span><span class="line"><span class="cl">            legal ← True
+</span></span><span class="line"><span class="cl">            for i ← 1 to r − 1
+</span></span><span class="line"><span class="cl">                if (Q[i] = j) or (Q[i] = j + r − i) or (Q[i] = j − r + i)
+</span></span><span class="line"><span class="cl">                    legal ← False
+</span></span><span class="line"><span class="cl">            if legal
+</span></span><span class="line"><span class="cl">                Q[r] ← j
+</span></span><span class="line"><span class="cl">                PlaceQueens(Q[1.. n], r + 1) &lt;&lt;Recursion!&gt;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <div class="tab-pane" id="Queen-1">
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">placeQueens</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">Q</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+  <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">placeQueens</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">Q</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="n">printQueens</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">Q</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
@@ -375,7 +411,9 @@
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 
   </div>
@@ -410,25 +448,52 @@
   <div class="tab-content">
     
 <div class="tab-pane active" id="SubsetSum-0">
-  <pre tabindex="0"><code>&lt;&lt;Does any subset of X sum to T ?&gt;&gt;
-SubsetSum(X, T):
-    if T = 0
-        return True
-    else if T &lt; 0 or X = ∅
-        return False
-    else
-        x ← any element of X
-        with ← SubsetSum(X \ {x}, T − x) &lt;&lt;Recurse!&gt;&gt;
-        wout ← SubsetSum
-</code></pre>
+  <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;&lt;Does any subset of X sum to T ?&gt;&gt;
+</span></span><span class="line"><span class="cl">SubsetSum(X, T):
+</span></span><span class="line"><span class="cl">    if T = 0
+</span></span><span class="line"><span class="cl">        return True
+</span></span><span class="line"><span class="cl">    else if T &lt; 0 or X = ∅
+</span></span><span class="line"><span class="cl">        return False
+</span></span><span class="line"><span class="cl">    else
+</span></span><span class="line"><span class="cl">        x ← any element of X
+</span></span><span class="line"><span class="cl">        with ← SubsetSum(X \ {x}, T − x) &lt;&lt;Recurse!&gt;&gt;
+</span></span><span class="line"><span class="cl">        wout ← SubsetSum
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <div class="tab-pane" id="SubsetSum-1">
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">subsetSum</span><span class="p">(</span><span class="kt">int</span> <span class="n">nums</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+  <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">subsetSum</span><span class="p">(</span><span class="kt">int</span> <span class="n">nums</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">return</span> <span class="n">subsetSum</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">T</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">||</span> <span class="n">subsetSum</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 
   </div>
@@ -460,22 +525,56 @@ SubsetSum(X, T):
   <div class="tab-content">
     
 <div class="tab-pane active" id="SubsetList-0">
-  <pre tabindex="0"><code>ConstructSubset(X, i, T):
-    if T = 0
-        return ∅
-    if T &lt; 0 or n = 0
-        return None
-    Y ← ConstructSubset(X, i − 1, T)
-    if Y != None
-        return Y
-    Y ← ConstructSubset(X, i − 1, T − X[i])
-    if Y != None
-        return Y ∪ {X[i]}
-    return None
-</code></pre>
+  <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ConstructSubset(X, i, T):
+</span></span><span class="line"><span class="cl">    if T = 0
+</span></span><span class="line"><span class="cl">        return ∅
+</span></span><span class="line"><span class="cl">    if T &lt; 0 or n = 0
+</span></span><span class="line"><span class="cl">        return None
+</span></span><span class="line"><span class="cl">    Y ← ConstructSubset(X, i − 1, T)
+</span></span><span class="line"><span class="cl">    if Y != None
+</span></span><span class="line"><span class="cl">        return Y
+</span></span><span class="line"><span class="cl">    Y ← ConstructSubset(X, i − 1, T − X[i])
+</span></span><span class="line"><span class="cl">    if Y != None
+</span></span><span class="line"><span class="cl">        return Y ∪ {X[i]}
+</span></span><span class="line"><span class="cl">    return None
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <div class="tab-pane" id="SubsetList-1">
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">pair</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">constructSubset</span><span class="p">(</span><span class="kt">int</span> <span class="n">nums</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+  <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">pair</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">constructSubset</span><span class="p">(</span><span class="kt">int</span> <span class="n">nums</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="p">{</span> <span class="p">{},</span><span class="nb">true</span> <span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="p">{</span> <span class="p">{},</span><span class="nb">false</span> <span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">sub</span> <span class="o">=</span> <span class="n">constructSubset</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="p">);</span>
@@ -487,7 +586,9 @@ SubsetSum(X, T):
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span> <span class="p">{},</span><span class="nb">false</span> <span class="p">};</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 
   </div>

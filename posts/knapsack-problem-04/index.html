@@ -9,7 +9,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#009966">
 <link rel="manifest" href="/images/site.webmanifest">
 
-<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.60a91bc2718706733bf87be418a6590e5803f9bff2f27921fb58b57b7c0dea6d.css">
+<link rel="stylesheet" href="https://hotsnow-sean.github.io/sass/main.min.5d6aa2ae26fe98337d2532edde76e229c227bb92b9e7c91fd37c9174516ee678.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
@@ -142,15 +142,11 @@
         <div class="post-toc">
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#-混合背包问题-b-站大雪莱-背包九讲专题-i-classfa-fa-external-link-altihttpswwwbilibilicomvideobv1qt411z7nefromsearchseid7823159650487960943">🎒 混合背包问题 (<a href="https://www.bilibili.com/video/BV1qt411Z7nE?from=search&amp;seid=7823159650487960943">B 站大雪莱-背包九讲专题 <i class="fa fa-external-link-alt"></i></a>)</a>
+    <li><a href="#-题目">❓ 题目</a></li>
+    <li><a href="#-解决方案">✅ 解决方案</a>
       <ul>
-        <li><a href="#-题目">❓ 题目</a></li>
-        <li><a href="#-解决方案">✅ 解决方案</a>
-          <ul>
-            <li><a href="#思路">思路</a></li>
-            <li><a href="#代码">代码</a></li>
-          </ul>
-        </li>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#代码">代码</a></li>
       </ul>
     </li>
   </ul>
@@ -335,7 +331,51 @@
 <h3 id="思路">思路</h3>
 <p>  在了解了之前三个问题的基础上，这个问题实际上并不难，只需要按照类别分别计算就行了，其中多重背包在这种数据范围下可以用一下二进制优化，这样一来，整个问题里就只存在 01 和完全两种问题了。</p>
 <h3 id="代码">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
@@ -375,7 +415,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

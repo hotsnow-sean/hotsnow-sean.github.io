@@ -16,12 +16,12 @@ since = 2020
 subtitle = "仰观浮云，俯惹尘埃"
 
 [params.favicon]
-small = "url"
-medium = "url"
-apple_touch_icon = "url"
-safari_pinned_tab = "url"
-android_manifest = "url"
-ms_browserconfig = "url"
+small = "/images/favicon-16x16.png"
+medium = "/images/favicon-32x32.png"
+apple_touch_icon = "/images/apple-touch-icon.png"
+safari_pinned_tab = "/images/safari-pinned-tab.svg"
+android_manifest = "/images/site.webmanifest"
+ms_browserconfig = "/images/browserconfig.xml"
 
 [[params.social]]
 icon = "i-carbon-logo-github"
@@ -73,6 +73,12 @@ name = "archives"
 pre = "i-fa-solid-archive"
 url = "/posts/"
 weight = -60
+
+[[menu.main]]
+name = "珍宝阁"
+pre = "i-fa-solid-book"
+url = "/collection/"
+weight = -50
 
 [[menu.main]]
 name = "sitemap"

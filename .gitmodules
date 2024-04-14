@@ -1,0 +1,3 @@
+[submodule "themes/NextPisces"]
+	path = themes/NextPisces
+	url = git@github.com:hotsnow-sean/hugo-theme-next-Pisces.git

@@ -1,0 +1,97 @@
+baseURL = "http://hotsnow-sean.github.io"
+defaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
+languageCode = "zh-CN"
+theme = "NextPisces"
+title = "Hotsnow's Island"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON" ]
+
+[params]
+author = "Hotsnow"
+avatar = "https://cdn.jsdelivr.net/gh/hotsnow-sean/image-host/img/HSavatar.gif"
+links_title = "欢迎访问"
+since = 2020
+subtitle = "仰观浮云，俯惹尘埃"
+
+[params.favicon]
+small = "url"
+medium = "url"
+apple_touch_icon = "url"
+safari_pinned_tab = "url"
+android_manifest = "url"
+ms_browserconfig = "url"
+
+[[params.social]]
+icon = "i-carbon-logo-github"
+name = "GitHub"
+url = "https://github.com/hotsnow-sean"
+
+[[params.links]]
+name = "Bilibili-炎军逸雪的个人空间"
+url = "https://space.bilibili.com/21290512"
+
+[[params.links]]
+name = "Gitee-码云"
+url = "https://gitee.com/smallsean"
+
+[params.github_banner]
+enable = true
+permalink = "https://github.com/hotsnow-sean"
+
+[menu]
+[[menu.main]]
+name = "home"
+pre = "i-fa-solid-home"
+url = "/"
+weight = -100
+
+[[menu.main]]
+name = "about"
+pre = "i-fa-solid-user"
+url = "/about/"
+weight = -90
+
+[[menu.main]]
+identifier = "tags"
+name = "tags"
+pre = "i-fa-solid-tags"
+url = "/tags/"
+weight = -80
+
+[[menu.main]]
+identifier = "categories"
+name = "categories"
+pre = "i-fa-solid-th"
+url = "/categories/"
+weight = -70
+
+[[menu.main]]
+identifier = "archives"
+name = "archives"
+pre = "i-fa-solid-archive"
+url = "/posts/"
+weight = -60
+
+[[menu.main]]
+name = "sitemap"
+pre = "i-fa-solid-sitemap"
+url = "/sitemap.xml"
+weight = -40
+
+[markup]
+[markup.tableOfContents]
+endLevel = 4
+startLevel = 1
+
+[markup.highlight]
+codeFences = true
+guessSyntax = true
+lineNos = true
+lineNumbersInTable = true
+noClasses = false
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true

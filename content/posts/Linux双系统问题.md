@@ -21,8 +21,15 @@ lastmod: 2020-07-11T20:22:28+08:00
       - step2：保存现有引导项 `Bcdedit /export savebcd`
       - step3：删除多余引导项 `Bcdedit /store savebcd /delete {2eda5080-380c-11ea-b5c6-806e6f6e6963}` 大括号里的值换成第一步记录的标识符
       - step4：导入处理好的文件 `Bcdedit /clean /import savebcd`
-   2. 删除多余引导项文件
-      &emsp;&emsp;启动项被删除之后只是启动时我们看不见选项了，但是实际上启动项文件依旧在磁盘里存放着，当然也要给它干掉咯。 + step1：打开 cmd 运行 `diskpart` + step2：在新窗口输入 `list disk` + step3：根据实际情况选择磁盘 `select disk 0`，把 0 换成启动分区所在的磁盘号 + step4：列出所选磁盘分区 `list partition` + step5：选中 EFI 所在分区 `select partition 1`，把 1 换成启动分区的编号，一般是那个 100M 或 512M 大的分区 + step5：给所选分区分配盘符 `assign letter=p` + step6：管理员权限打开记事本，按下打开文件选项，在此窗口中对相关文件进行删除操作 + step7：回到 diskpart 窗口，取消盘符分配 `remove letter=p`
+   2. 删除多余引导项文件（启动项被删除之后只是启动时我们看不见选项了，但是实际上启动项文件依旧在磁盘里存放着，当然也要给它干掉咯）
+      - step1：打开 cmd 运行 `diskpart`
+      - step2：在新窗口输入 `list disk`
+      - step3：根据实际情况选择磁盘 `select disk 0`，把 0 换成启动分区所在的磁盘号
+      - step4：列出所选磁盘分区 `list partition`
+      - step5：选中 EFI 所在分区 `select partition 1`，把 1 换成启动分区的编号，一般是那个 100M 或 512M 大的分区
+      - step5：给所选分区分配盘符 `assign letter=p`
+      - step6：管理员权限打开记事本，按下打开文件选项，在此窗口中对相关文件进行删除操作
+      - step7：回到 diskpart 窗口，取消盘符分配 `remove letter=p`
 
 ## Linux 和 Windows 时间不统一解决办法（二者选其一）
 

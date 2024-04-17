@@ -34,9 +34,7 @@ lastmod: 2020-07-11T20:22:28+08:00
 ## Linux 和 Windows 时间不统一解决办法（二者选其一）
 
 - case1：在 Linux 终端输入 `sudo hwclock --systohc --localtime`
-- case2：在 windows 下运行 < regedit > 打开注册表
-  依次进入 `\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation`
-  新建名为 `RealTimeIsUniversal` 的 < QWORD > 值，令其为 `1 [十六进制]`
+- case2：在 windows 下运行 `regedit` 打开注册表，依次进入 `\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation`，新建名为 `RealTimeIsUniversal` 的 `QWORD` 值，令其为 `1 [十六进制]`
 
 ## Linux 下键盘灯光控制
 
